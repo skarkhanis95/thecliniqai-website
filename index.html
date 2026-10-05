@@ -199,31 +199,29 @@
   --shadow-float: 0 25px 50px -12px rgba(11,27,61,0.18), 0 8px 24px -4px rgba(11,27,61,0.08);
 }
 
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --slate-50:#0B1324;
-    --slate-100:#111C35;
-    --slate-200:#1E2D4E;
-    --slate-400:#8599B5;
-    --slate-600:#B0C2DE;
-    --slate-800:#F1F5F9;
-    --white:#0F1A33;
-    --navy:#FFFFFF;
-    --navy-dark:#050B17;
-    --blue-light:#132B4F;
-    --teal-light:#0F3330;
-  }
-}
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:84px;
+  overflow-x:hidden;
+  width:100%;
+  -webkit-text-size-adjust:100%;
+}
 body{
   margin:0;
+  padding:0;
+  overflow-x:hidden;
+  width:100%;
   background:var(--slate-50);
   color:var(--slate-800);
   font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+img, svg{
+  max-width:100%;
+  height:auto;
 }
 
 h1,h2,h3,h4{
@@ -236,6 +234,9 @@ h1,h2,h3,h4{
 }
 a{color:inherit;text-decoration:none}
 .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+@media(max-width:640px){
+  .container{width:calc(100% - 32px)}
+}
 
 /* Buttons (Apple-grade interactive spring feel) */
 .btn{
@@ -295,37 +296,86 @@ a{color:inherit;text-decoration:none}
   border-bottom:1px solid var(--slate-200);
 }
 .nav-inner{
-  height:78px;
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-img{height:40px;width:auto;display:block;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
+.nav-links a:hover{color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta-desktop{display:inline-flex}
+.mobile-toggle{
+  display:none;
+  background:var(--slate-100);
+  border:1px solid var(--slate-200);
+  border-radius:10px;
+  width:42px;
+  height:42px;
+  padding:0;
+  color:var(--navy);
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  transition:transform 100ms cubic-bezier(0.16,1,0.3,1), background 120ms ease;
+}
+.mobile-toggle:active{
+  transform:scale(0.92);
+  background:var(--slate-200);
+}
+.mobile-drawer{
+  position:fixed;
+  top:74px;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--slate-200);
+  padding:18px 20px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  transform:translateY(-8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:transform 200ms cubic-bezier(0.16,1,0.3,1),
+              opacity 200ms cubic-bezier(0.16,1,0.3,1),
+              visibility 200ms;
+  overflow-y:auto;
+  z-index:99;
+}
+.mobile-drawer.open{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.mobile-drawer a{
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--slate-800);
+  padding:12px 14px;
+  border-radius:10px;
+  transition:background 120ms ease;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand-img{height:42px;width:auto;display:block}
-@media (prefers-color-scheme: dark){.brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}}
-.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
-.nav-links a:hover{color:var(--navy)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.mobile-toggle{
-  display:none;
-  background:none;
-  border:1px solid var(--slate-200);
-  border-radius:8px;
-  padding:8px 10px;
-  font-size:18px;
-  color:var(--navy);
-  cursor:pointer;
-}
-.mobile-drawer{
-  display:none;
+.mobile-drawer a:active{background:var(--slate-100)}
+.mobile-drawer-cta{
+  margin-top:10px;
+  padding-top:14px;
+  border-top:1px solid var(--slate-200);
+  display:flex;
   flex-direction:column;
-  gap:12px;
-  padding:16px 20px 22px;
-  background:var(--white);
-  border-bottom:1px solid var(--slate-200);
+  gap:10px;
 }
-.mobile-drawer.open{display:flex}
-.mobile-drawer a{font-size:15px;font-weight:500;padding:6px 0}
 
 /* Hero Section */
 .hero{padding:64px 0 80px;position:relative}
@@ -813,14 +863,191 @@ a{color:inherit;text-decoration:none}
   .cta-banner{flex-direction:column;align-items:flex-start;padding:36px}
 }
 @media(max-width:768px){
+  .nav-inner{height:68px}
   .nav-links{display:none}
-  .mobile-toggle{display:block}
-  .metrics-grid{grid-template-columns:1fr}
-  .feature-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .device-screen{grid-template-columns:1fr}
+  .mobile-toggle{display:flex}
+  .nav-cta-desktop{display:none !important}
+  .brand-img{height:34px}
+  .mobile-drawer{top:68px}
+
+  /* Hero Section */
+  .hero{padding:32px 0 44px}
+  .hero-copy{gap:14px}
+  .hero-copy h1{
+    font-size:clamp(30px,7.5vw,40px);
+    line-height:1.12;
+    letter-spacing:-0.03em;
+  }
+  .hero-copy p.lead{
+    font-size:15.5px;
+    line-height:1.5;
+  }
+  .hero-actions{
+    flex-direction:column;
+    width:100%;
+    gap:10px;
+  }
+  .hero-actions .btn{
+    width:100%;
+    padding:13px 18px;
+    font-size:15px;
+  }
+  .trial-tagline{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 10px;
+    margin-top:6px;
+  }
+  .trial-tagline span{font-size:12.5px}
+
+  /* Device Mockup Adaptive Mobile Preview */
+  .device-frame{
+    border-radius:18px;
+    padding:6px;
+    box-shadow:0 12px 32px -8px rgba(11,27,61,0.14);
+  }
+  .device-screen{
+    grid-template-columns:1fr;
+    min-height:auto;
+    border-radius:12px;
+  }
   .device-sidebar{display:none}
-  .hero{padding:40px 0 50px}
+  .device-main{
+    padding:12px 10px 14px;
+    gap:10px;
+  }
+  .device-topbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .device-greeting h4{font-size:13.5px}
+  .device-greeting p{font-size:10.5px}
+  .device-btn-new{
+    padding:4px 8px;
+    font-size:10px;
+    align-self:flex-start;
+  }
+  .device-kpis{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:6px;
+  }
+  .device-kpi-card{padding:6px 8px}
+  .device-kpi-label{font-size:8.5px}
+  .device-kpi-val{font-size:15px}
+  .device-kpi-badge{font-size:8.5px}
+  .device-grid-split{
+    grid-template-columns:1fr !important;
+    gap:8px;
+  }
+  .device-card-box{padding:8px 10px}
+  .device-box-title{font-size:11px}
+  .device-queue-row{
+    padding:5px 6px;
+    font-size:10px;
+  }
+  .device-queue-time{font-size:9.5px}
+  .device-queue-name{font-size:10px}
+  .device-activity-item{font-size:10px}
+
+  /* Sections */
+  .section{padding:48px 0}
+  .section-head{margin-bottom:28px}
+  .section-head h2{
+    font-size:clamp(24px,6vw,32px);
+    line-height:1.18;
+  }
+  .section-head p{font-size:15px}
+
+  /* Metrics Strip */
+  .metrics-strip{padding:24px 0}
+  .metrics-grid{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:18px 14px;
+  }
+  .metric-col b{font-size:22px}
+  .metric-col span{
+    font-size:12.5px;
+    line-height:1.4;
+  }
+
+  /* Comparison & Features */
+  .compare-box{padding:22px 18px}
+  .compare-box h3{font-size:17px}
+  .compare-list li{
+    font-size:13.5px;
+    gap:8px;
+  }
+  .feature-grid{
+    grid-template-columns:1fr !important;
+    gap:14px;
+  }
+  .feature-card{padding:20px 18px}
+
+  /* AI Receptionist Banner */
+  .voice-banner{
+    padding:24px 18px !important;
+    border-radius:var(--radius-md) !important;
+    gap:24px !important;
+  }
+  .voice-banner h2{font-size:clamp(22px,5.5vw,28px)}
+  .voice-banner p.lead{
+    font-size:14.5px;
+    margin-bottom:16px;
+  }
+  .voice-point{font-size:13.5px}
+  .voice-sim-box{padding:16px}
+  .voice-sim-stats{
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  .voice-sim-stat{padding:10px}
+  .voice-sim-num{font-size:20px}
+  .voice-sim-desc{font-size:11px}
+
+  /* Pricing */
+  .pricing-grid{
+    grid-template-columns:1fr !important;
+    gap:20px;
+  }
+  .pricing-card-main{padding:24px 18px !important}
+  .pricing-header h3{font-size:21px}
+  .price-number{font-size:44px}
+  .pricing-checklist li{font-size:13.5px}
+  .addon-box{padding:22px 18px !important}
+
+  /* FAQ */
+  .faq-box summary{
+    padding:14px 16px;
+    font-size:15px;
+  }
+  .faq-answer{
+    padding:0 16px 16px;
+    font-size:14px;
+  }
+
+  /* CTA Banner */
+  .cta-banner{
+    padding:28px 20px !important;
+    gap:20px;
+    border-radius:var(--radius-md) !important;
+  }
+  .cta-banner h2{font-size:24px}
+  .cta-banner p{font-size:14.5px}
+
+  /* Footer */
+  .footer{padding:48px 0 28px}
+  .footer-grid{
+    grid-template-columns:1fr !important;
+    gap:28px;
+  }
+  .copyright{
+    margin-top:32px;
+    padding-top:20px;
+    flex-direction:column;
+    gap:10px;
+    font-size:12px;
+  }
 }
 </style>
 </head>
@@ -830,7 +1057,7 @@ a{color:inherit;text-decoration:none}
 <header class="nav" id="navbar">
   <div class="container nav-inner">
     <a class="brand" href="index.html">
-      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img" height="42">
+      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img" height="40" width="133">
     </a>
     <nav class="nav-links">
       <a href="#features">Features</a>
@@ -841,21 +1068,26 @@ a{color:inherit;text-decoration:none}
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
-      <a class="btn btn-primary" href="#demo">Start 60-Day Free Trial</a>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">☰</button>
+      <a class="btn btn-primary nav-cta-desktop" href="#demo">Start 60-Day Free Trial</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation" aria-expanded="false">
+        <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     </div>
   </div>
   <div class="mobile-drawer" id="mobileDrawer">
-    <a href="#features" onclick="closeDrawer()">Features</a>
-    <a href="#voice" onclick="closeDrawer()">AI Receptionist (Add-on)</a>
-    <a href="#pricing" onclick="closeDrawer()">Pricing (₹999/mo)</a>
-    <a href="about.html" onclick="closeDrawer()">About Us</a>
-    <a href="contact.html" onclick="closeDrawer()">Contact Us</a>
-    <a href="privacy.html" onclick="closeDrawer()">Privacy Policy</a>
-    <a href="terms.html" onclick="closeDrawer()">Terms &amp; Conditions</a>
-    <a href="data-deletion.html" onclick="closeDrawer()">Data Deletion</a>
-    <a href="#faq" onclick="closeDrawer()">FAQ</a>
-    <a href="#demo" onclick="closeDrawer()" style="color:var(--blue);font-weight:700">Start 60-Day Free Trial</a>
+    <a href="#features" onclick="closeDrawer()"><span>Features</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="#voice" onclick="closeDrawer()"><span>AI Receptionist (Add-on)</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="#pricing" onclick="closeDrawer()"><span>Pricing (₹999/mo)</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="about.html" onclick="closeDrawer()"><span>About Us</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="contact.html" onclick="closeDrawer()"><span>Contact Us</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="privacy.html" onclick="closeDrawer()"><span>Privacy Policy</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="terms.html" onclick="closeDrawer()"><span>Terms &amp; Conditions</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="data-deletion.html" onclick="closeDrawer()"><span>Data Deletion</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="#faq" onclick="closeDrawer()"><span>FAQ</span><span style="color:var(--slate-400)">→</span></a>
+    <div class="mobile-drawer-cta">
+      <a class="btn btn-primary" href="#demo" onclick="closeDrawer()" style="width:100%;padding:13px;font-size:15px;justify-content:center">Start 60-Day Free Trial</a>
+    </div>
   </div>
 </header>
 
@@ -1418,15 +1650,29 @@ a{color:inherit;text-decoration:none}
 // Mobile Navigation Drawer Toggle
 const mobileToggle = document.getElementById("mobileToggle");
 const mobileDrawer = document.getElementById("mobileDrawer");
+const iconMenu = mobileToggle ? mobileToggle.querySelector(".icon-menu") : null;
+const iconClose = mobileToggle ? mobileToggle.querySelector(".icon-close") : null;
 
-mobileToggle.addEventListener("click", () => {
-  mobileDrawer.classList.toggle("open");
-  mobileToggle.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
-});
+if (mobileToggle && mobileDrawer) {
+  mobileToggle.addEventListener("click", () => {
+    const isOpen = mobileDrawer.classList.toggle("open");
+    mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    if (iconMenu && iconClose) {
+      iconMenu.style.display = isOpen ? "none" : "block";
+      iconClose.style.display = isOpen ? "block" : "none";
+    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+}
 
 function closeDrawer() {
-  mobileDrawer.classList.remove("open");
-  mobileToggle.textContent = "☰";
+  if (mobileDrawer) mobileDrawer.classList.remove("open");
+  if (mobileToggle) mobileToggle.setAttribute("aria-expanded", "false");
+  if (iconMenu && iconClose) {
+    iconMenu.style.display = "block";
+    iconClose.style.display = "none";
+  }
+  document.body.style.overflow = "";
 }
 
 // Sticky Header Box Shadow

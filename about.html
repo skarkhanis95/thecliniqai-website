@@ -68,31 +68,29 @@
   --shadow-card: 0 10px 30px -4px rgba(11,27,61,0.06), 0 4px 12px -2px rgba(11,27,61,0.03);
 }
 
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --slate-50:#0B1324;
-    --slate-100:#111C35;
-    --slate-200:#1E2D4E;
-    --slate-400:#8599B5;
-    --slate-600:#B0C2DE;
-    --slate-800:#F1F5F9;
-    --white:#0F1A33;
-    --navy:#FFFFFF;
-    --navy-dark:#050B17;
-    --blue-light:#132B4F;
-    --teal-light:#0F3330;
-  }
-}
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:84px;
+  overflow-x:hidden;
+  width:100%;
+  -webkit-text-size-adjust:100%;
+}
 body{
   margin:0;
+  padding:0;
+  overflow-x:hidden;
+  width:100%;
   background:var(--slate-50);
   color:var(--slate-800);
   font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+img, svg{
+  max-width:100%;
+  height:auto;
 }
 
 h1,h2,h3,h4{
@@ -105,6 +103,9 @@ h1,h2,h3,h4{
 }
 a{color:inherit;text-decoration:none}
 .container{width:min(var(--max),calc(100% - 40px));margin:auto}
+@media(max-width:640px){
+  .container{width:calc(100% - 32px)}
+}
 
 /* Buttons */
 .btn{
@@ -158,37 +159,86 @@ a{color:inherit;text-decoration:none}
   border-bottom:1px solid var(--slate-200);
 }
 .nav-inner{
-  height:78px;
+  height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-img{height:40px;width:auto;display:block;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
+.nav-links a:hover{color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta-desktop{display:inline-flex}
+.mobile-toggle{
+  display:none;
+  background:var(--slate-100);
+  border:1px solid var(--slate-200);
+  border-radius:10px;
+  width:42px;
+  height:42px;
+  padding:0;
+  color:var(--navy);
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  transition:transform 100ms cubic-bezier(0.16,1,0.3,1), background 120ms ease;
+}
+.mobile-toggle:active{
+  transform:scale(0.92);
+  background:var(--slate-200);
+}
+.mobile-drawer{
+  position:fixed;
+  top:74px;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--slate-200);
+  padding:18px 20px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  transform:translateY(-8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:transform 200ms cubic-bezier(0.16,1,0.3,1),
+              opacity 200ms cubic-bezier(0.16,1,0.3,1),
+              visibility 200ms;
+  overflow-y:auto;
+  z-index:99;
+}
+.mobile-drawer.open{
+  transform:translateY(0);
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.mobile-drawer a{
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--slate-800);
+  padding:12px 14px;
+  border-radius:10px;
+  transition:background 120ms ease;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
-.brand{display:flex;align-items:center;gap:10px}
-.brand-img{height:42px;width:auto;display:block}
-@media (prefers-color-scheme: dark){.brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}}
-.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
-.nav-links a:hover{color:var(--navy)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.mobile-toggle{
-  display:none;
-  background:none;
-  border:1px solid var(--slate-200);
-  border-radius:8px;
-  padding:8px 10px;
-  font-size:18px;
-  color:var(--navy);
-  cursor:pointer;
-}
-.mobile-drawer{
-  display:none;
+.mobile-drawer a:active{background:var(--slate-100)}
+.mobile-drawer-cta{
+  margin-top:10px;
+  padding-top:14px;
+  border-top:1px solid var(--slate-200);
+  display:flex;
   flex-direction:column;
-  gap:12px;
-  padding:16px 20px 22px;
-  background:var(--white);
-  border-bottom:1px solid var(--slate-200);
+  gap:10px;
 }
-.mobile-drawer.open{display:flex}
-.mobile-drawer a{padding:8px 0;font-size:15px;color:var(--slate-600);border-bottom:1px solid var(--slate-100)}
 
 /* Page Header */
 .page-header{
@@ -296,16 +346,37 @@ footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-sp
 }
 
 @media(max-width:960px){
-  .nav-links{display:none}
-  .mobile-toggle{display:block}
   .story-grid{grid-template-columns:1fr}
   .values-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .cta-box{flex-direction:column;align-items:flex-start}
 }
+@media(max-width:768px){
+  .nav-inner{height:68px}
+  .nav-links{display:none}
+  .mobile-toggle{display:flex}
+  .nav-cta-desktop{display:none !important}
+  .brand-img{height:34px}
+  .mobile-drawer{top:68px}
+
+  .page-header{padding:40px 0 32px}
+  .page-header h1{
+    font-size:clamp(28px,7vw,38px);
+    line-height:1.15;
+  }
+  .page-header p.lead{font-size:15.5px}
+
+  .content-section{padding:40px 0 60px}
+  .story-grid{gap:32px;margin-bottom:44px}
+  .story-card{padding:22px 18px}
+  .values-grid{gap:16px;margin-bottom:44px}
+  .val-card{padding:24px 20px}
+  .cta-box{padding:28px 20px}
+  .cta-box h2{font-size:24px}
+}
 @media(max-width:540px){
-  .footer-grid{grid-template-columns:1fr}
-  .cta-box{padding:32px 24px}
+  .footer-grid{grid-template-columns:1fr !important}
+  .cta-box{padding:24px 18px}
 }
 </style>
 </head>
@@ -314,7 +385,7 @@ footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-sp
 <header class="nav" id="navbar">
   <div class="container nav-inner">
     <a href="index.html" class="brand">
-      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img">
+      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img" height="40" width="133">
     </a>
     <nav class="nav-links">
       <a href="index.html#features">Features</a>
@@ -324,17 +395,25 @@ footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-sp
       <a href="contact.html">Contact Us</a>
     </nav>
     <div class="nav-right">
-      <a href="index.html#demo" class="btn btn-primary" style="display:none;@media(min-width:768px){display:inline-flex}">Start Free Trial</a>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
+      <a href="index.html#demo" class="btn btn-primary nav-cta-desktop">Start Free Trial</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu" aria-expanded="false">
+        <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     </div>
   </div>
   <div class="mobile-drawer" id="mobileDrawer">
-    <a href="index.html#features" onclick="closeDrawer()">Features</a>
-    <a href="index.html#voice" onclick="closeDrawer()">AI Receptionist</a>
-    <a href="index.html#pricing" onclick="closeDrawer()">Pricing (₹999/mo)</a>
-    <a href="about.html" onclick="closeDrawer()">About Us</a>
-    <a href="contact.html" onclick="closeDrawer()">Contact Us</a>
-    <a href="index.html#demo" class="btn btn-primary" onclick="closeDrawer()" style="margin-top:8px">Start Free 60-Day Trial</a>
+    <a href="index.html#features" onclick="closeDrawer()"><span>Features</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="index.html#voice" onclick="closeDrawer()"><span>AI Receptionist</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="index.html#pricing" onclick="closeDrawer()"><span>Pricing (₹999/mo)</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="about.html" onclick="closeDrawer()"><span>About Us</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="contact.html" onclick="closeDrawer()"><span>Contact Us</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="privacy.html" onclick="closeDrawer()"><span>Privacy Policy</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="terms.html" onclick="closeDrawer()"><span>Terms &amp; Conditions</span><span style="color:var(--slate-400)">→</span></a>
+    <a href="data-deletion.html" onclick="closeDrawer()"><span>Data Deletion</span><span style="color:var(--slate-400)">→</span></a>
+    <div class="mobile-drawer-cta">
+      <a href="index.html#demo" class="btn btn-primary" onclick="closeDrawer()" style="width:100%;padding:13px;font-size:15px;justify-content:center">Start Free 60-Day Trial</a>
+    </div>
   </div>
 </header>
 
@@ -461,15 +540,29 @@ footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-sp
 <script>
 const mobileToggle = document.getElementById("mobileToggle");
 const mobileDrawer = document.getElementById("mobileDrawer");
+const iconMenu = mobileToggle ? mobileToggle.querySelector(".icon-menu") : null;
+const iconClose = mobileToggle ? mobileToggle.querySelector(".icon-close") : null;
 
-mobileToggle.addEventListener("click", () => {
-  mobileDrawer.classList.toggle("open");
-  mobileToggle.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
-});
+if (mobileToggle && mobileDrawer) {
+  mobileToggle.addEventListener("click", () => {
+    const isOpen = mobileDrawer.classList.toggle("open");
+    mobileToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    if (iconMenu && iconClose) {
+      iconMenu.style.display = isOpen ? "none" : "block";
+      iconClose.style.display = isOpen ? "block" : "none";
+    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+}
 
 function closeDrawer() {
-  mobileDrawer.classList.remove("open");
-  mobileToggle.textContent = "☰";
+  if (mobileDrawer) mobileDrawer.classList.remove("open");
+  if (mobileToggle) mobileToggle.setAttribute("aria-expanded", "false");
+  if (iconMenu && iconClose) {
+    iconMenu.style.display = "block";
+    iconClose.style.display = "none";
+  }
+  document.body.style.overflow = "";
 }
 </script>
 </body>
