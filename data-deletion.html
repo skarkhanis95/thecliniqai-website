@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="User Data Deletion Instructions for The CliniQ AI and integrated WhatsApp Business services in accordance with Meta Platform policies and DPDP Act 2023.">
+<title>User Data Deletion Instructions — The CliniQ AI</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1B3D;
+  --navy-dark:#060F24;
+  --blue:#0284C7;
+  --blue-hover:#0369A1;
+  --blue-light:#E0F2FE;
+  --teal:#0D9488;
+  --teal-light:#CCFBF1;
+  --slate-50:#F8FAFC;
+  --slate-100:#F1F5F9;
+  --slate-200:#E2E8F0;
+  --slate-400:#94A3B8;
+  --slate-600:#475569;
+  --slate-800:#1E293B;
+  --white:#FFFFFF;
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --max:940px;
+  --shadow-subtle: 0 1px 3px rgba(11,27,61,0.04), 0 1px 2px rgba(11,27,61,0.02);
+  --shadow-card: 0 10px 30px -4px rgba(11,27,61,0.06), 0 4px 12px -2px rgba(11,27,61,0.03);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --slate-50:#0B1324;
+    --slate-100:#111C35;
+    --slate-200:#1E2D4E;
+    --slate-400:#8599B5;
+    --slate-600:#B0C2DE;
+    --slate-800:#F1F5F9;
+    --white:#0F1A33;
+    --navy:#FFFFFF;
+    --navy-dark:#050B17;
+    --blue-light:#132B4F;
+    --teal-light:#0F3330;
+  }
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  background:var(--slate-50);
+  color:var(--slate-800);
+  font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:inherit;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  color:var(--navy);
+  line-height:1.2;
+  margin:0;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14.5px;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all 120ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-align:center;
+}
+.btn:active{transform:scale(0.97)}
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 2px 10px rgba(2,132,199,0.3);
+}
+.btn-primary:hover{background:var(--blue-hover);box-shadow:0 4px 16px rgba(2,132,199,0.4);text-decoration:none}
+
+/* Navigation Bar */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:color-mix(in srgb, var(--slate-50) 85%, transparent);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--slate-200);
+}
+.nav-inner{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:min(1200px, calc(100% - 40px));
+  margin:auto;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-img{height:42px;width:auto;display:block}
+@media (prefers-color-scheme: dark){.brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
+.nav-links a{color:var(--slate-600)}
+.nav-links a:hover{color:var(--navy);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:14px}
+.mobile-toggle{
+  display:none;
+  background:none;
+  border:1px solid var(--slate-200);
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:18px;
+  color:var(--navy);
+  cursor:pointer;
+}
+.mobile-drawer{
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  padding:16px 20px 22px;
+  background:var(--white);
+  border-bottom:1px solid var(--slate-200);
+}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{padding:8px 0;font-size:15px;color:var(--slate-600);border-bottom:1px solid var(--slate-100);text-decoration:none}
+
+/* Legal Header */
+.legal-header{
+  padding:64px 0 40px;
+  border-bottom:1px solid var(--slate-200);
+  background:var(--white);
+}
+.legal-header h1{font-size:clamp(30px,4vw,44px);margin-bottom:12px}
+.legal-meta{font-size:14px;color:var(--slate-600)}
+
+/* Legal Body */
+.legal-body{padding:48px 0 88px}
+.legal-card{
+  background:var(--white);
+  border:1px solid var(--slate-200);
+  border-radius:var(--radius-lg);
+  padding:44px;
+  box-shadow:var(--shadow-card);
+}
+.legal-body h2{
+  font-size:22px;
+  margin:36px 0 14px;
+  padding-top:20px;
+  border-top:1px solid var(--slate-200);
+}
+.legal-body h2:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.legal-body h3{font-size:17px;margin:20px 0 8px}
+.legal-body p{color:var(--slate-600);font-size:15px;margin:0 0 16px}
+.legal-body ul, .legal-body ol{color:var(--slate-600);font-size:15px;padding-left:24px;margin:0 0 16px}
+.legal-body li{margin-bottom:8px}
+
+.step-box{
+  background:var(--slate-50);
+  border:1px solid var(--slate-200);
+  border-radius:var(--radius-md);
+  padding:22px 24px;
+  margin-bottom:16px;
+}
+.step-box strong{color:var(--navy);display:block;font-size:16px;margin-bottom:6px}
+
+.highlight-box{
+  background:var(--teal-light);
+  border-left:4px solid var(--teal);
+  padding:18px 22px;
+  border-radius:0 12px 12px 0;
+  margin:24px 0;
+}
+.highlight-box p{margin:0;color:var(--slate-800);font-size:14.5px;line-height:1.6}
+
+.request-form-card{
+  background:var(--slate-50);
+  border:1px solid var(--slate-200);
+  border-radius:var(--radius-md);
+  padding:28px;
+  margin-top:28px;
+}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.form-group input, .form-group textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--slate-200);
+  border-radius:10px;
+  background:#fff;
+  color:var(--slate-800);
+  font-family:inherit;
+  font-size:14.5px;
+  transition:all 0.15s ease;
+}
+.form-group input:focus, .form-group textarea:focus{
+  outline:none;
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(2,132,199,0.15);
+}
+.btn-delete{
+  background:#DC2626;
+  color:#fff;
+  border:none;
+  padding:13px 22px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14.5px;
+  cursor:pointer;
+  transition:background 0.15s, transform 0.1s;
+}
+.btn-delete:hover{background:#B91C1C}
+.btn-delete:active{transform:scale(0.98)}
+
+/* Footer */
+footer{
+  background:var(--navy-dark);
+  color:#94A3B8;
+  padding:72px 0 36px;
+  border-top:1px solid #1E293B;
+}
+.footer-inner{width:min(1200px, calc(100% - 40px));margin:auto}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:44px;
+  margin-bottom:56px;
+}
+.footer-logo{height:38px;width:auto;display:block;margin-bottom:14px}
+.footer-brand p{font-size:14px;line-height:1.6;margin:0 0 12px;color:#94A3B8}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.footer-links a{color:#94A3B8;transition:color 0.15s;text-decoration:none}
+.footer-links a:hover{color:#fff}
+footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-spacing:-0.01em}
+.copyright{
+  border-top:1px solid #1E293B;
+  padding-top:28px;
+  font-size:13px;
+  color:#64748B;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+  line-height:1.5;
+}
+
+@media(max-width:960px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .legal-card{padding:26px 20px}
+  .request-form-card{padding:20px 16px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#voice">AI Receptionist</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="nav-right">
+      <a href="index.html#demo" class="btn btn-primary" style="display:none;@media(min-width:768px){display:inline-flex}">Start Free Trial</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html#features" onclick="closeDrawer()">Features</a>
+    <a href="index.html#voice" onclick="closeDrawer()">AI Receptionist</a>
+    <a href="index.html#pricing" onclick="closeDrawer()">Pricing (₹999/mo)</a>
+    <a href="about.html" onclick="closeDrawer()">About Us</a>
+    <a href="contact.html" onclick="closeDrawer()">Contact Us</a>
+    <a href="index.html#demo" class="btn btn-primary" onclick="closeDrawer()" style="margin-top:8px">Start Free 60-Day Trial</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-header">
+    <div class="container">
+      <h1>User Data Deletion Instructions</h1>
+      <div class="legal-meta">
+        <strong>Meta Platform &amp; DPDP Act Compliance</strong> · The CliniQ AI Technologies · Last Updated: 5 October 2026
+      </div>
+    </div>
+  </div>
+
+  <div class="container legal-body">
+    <div class="legal-card">
+      <div class="highlight-box">
+        <p><strong>Meta Platform Compliance:</strong> In strict accordance with Meta Platform Terms, WhatsApp Business Platform policies, and the Indian Digital Personal Data Protection (DPDP) Act 2023, this page outlines the official instructions for users and patients to request the removal and deletion of their personal information from The CliniQ AI systems.</p>
+      </div>
+
+      <h2>1. Overview of Data We Store</h2>
+      <p>When you interact with The CliniQ AI — whether as a registered clinic administrator or as a patient receiving appointments, tokens, and prescription notifications via WhatsApp — certain personal data is processed to deliver those healthcare communications.</p>
+      <p>You have the absolute right to request the deletion of your personal data and opt out of automated WhatsApp communications at any time.</p>
+
+      <h2>2. Step-by-Step Data Deletion Instructions</h2>
+      <p>Users, patients, and clinic administrators can request data deletion through any of the following methods:</p>
+
+      <div class="step-box">
+        <strong>Method 1: Direct Email Request to Privacy Desk (Fastest)</strong>
+        <p style="margin:0 0 8px">Send an email to our dedicated data privacy desk at <a href="mailto:privacy@thecliniqai.com">privacy@thecliniqai.com</a> with the subject line: <code>"Data Deletion Request"</code>.</p>
+        <p style="margin:0;font-size:13.5px">Please include: (1) Full registered name, (2) Registered mobile phone number (used for WhatsApp), and (3) The clinic you consulted with (if applicable).</p>
+      </div>
+
+      <div class="step-box">
+        <strong>Method 2: Immediate WhatsApp Communication Opt-Out</strong>
+        <p style="margin:0">If you are a patient receiving automated notifications via our WhatsApp Business bot, simply reply with <strong>"STOP"</strong> or <strong>"UNSUBSCRIBE"</strong> in the chat. Our system will immediately flag your number as opted-out and cease automated appointment or prescription messaging.</p>
+      </div>
+
+      <div class="step-box">
+        <strong>Method 3: Clinic Administrator Practice Purge</strong>
+        <p style="margin:0">Clinic owners wishing to permanently delete their clinic tenant, staff accounts, and operational records can navigate to <strong>Settings &gt; Account &gt; Delete Practice Data</strong> in their CliniQ web portal or email <a href="mailto:support@thecliniqai.com">support@thecliniqai.com</a>.</p>
+      </div>
+
+      <h2>3. What Happens After Your Request</h2>
+      <ol>
+        <li><strong>Acknowledgment:</strong> Within 48 hours of receiving your request, our Data Protection Team will issue an official Confirmation &amp; Tracking Code to your email address.</li>
+        <li><strong>Verification:</strong> We verify the request to ensure the requester is the authorized owner of the phone number or clinic account.</li>
+        <li><strong>Purging of Data:</strong> Within 30 days of verification:
+          <ul>
+            <li>Your mobile phone number and demographic profile are removed from all automated messaging queues.</li>
+            <li>Inbound AI receptionist phone call logs and audio transcripts associated with your identifier are permanently erased.</li>
+            <li>Active authentication tokens and sessions are revoked.</li>
+          </ul>
+        </li>
+        <li><strong>Confirmation Notice:</strong> An official Deletion Completion Notice will be delivered to your registered email address.</li>
+      </ol>
+
+      <h2>4. Statutory Medical Record Retention Exceptions</h2>
+      <p>Under the regulations of the <strong>National Medical Commission (NMC)</strong> and Indian healthcare laws, treating medical practitioners are legally obligated to preserve clinical diagnosis, treatment charts, and prescription records for a statutory retention period (generally 3 years). While contact data and messaging permissions will be purged from our communication systems upon request, medical records legally owned by your consulting physician will be archived in accordance with Indian healthcare regulations.</p>
+
+      <h2>5. Instant Online Request Form</h2>
+      <p>Submit your deletion request directly using the form below to automatically generate an official request to our privacy desk:</p>
+
+      <div class="request-form-card">
+        <form id="deletionForm">
+          <div class="form-group">
+            <label for="delName">Full Name *</label>
+            <input type="text" id="delName" name="name" placeholder="Your Full Name" required>
+          </div>
+          <div class="form-group">
+            <label for="delPhone">Mobile Number (used on WhatsApp) *</label>
+            <input type="tel" id="delPhone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="delEmail">Contact Email Address *</label>
+            <input type="email" id="delEmail" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="delReason">Specify Deletion Scope</label>
+            <textarea id="delReason" name="body" rows="3" placeholder="e.g. Please purge my WhatsApp phone number, chat transcripts, and communication history from your platform."></textarea>
+          </div>
+          <button type="submit" class="btn-delete">Submit Data Deletion Request</button>
+        </form>
+        <div id="statusNotice" style="display:none;margin-top:18px;padding:16px;border-radius:10px;background:var(--teal-light);border:1px solid rgba(13,148,136,0.3);color:var(--teal);font-size:14px;line-height:1.5"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/the-cliniq-ai-logo-white.png" alt="The CliniQ AI" class="footer-logo">
+        </a>
+        <p>The modern, intuitive clinic operating system built for independent doctors and outpatient clinics in India.</p>
+        <div style="font-size:13px;color:#64748B;margin-top:12px">
+          Support: <a href="mailto:hello@thecliniqai.com" style="color:#94A3B8">hello@thecliniqai.com</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <div class="footer-links">
+          <a href="index.html#features">Core Features</a>
+          <a href="index.html#voice">AI Receptionist (Add-on)</a>
+          <a href="index.html#pricing">Pricing (₹999/mo)</a>
+          <a href="index.html#demo">60-Day Free Trial</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Company &amp; Legal</h4>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="data-deletion.html">Data Deletion Instructions</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Clinic Support</h4>
+        <div class="footer-links">
+          <a href="index.html#faq">Doctor FAQs</a>
+          <a href="contact.html">Schedule Demo / Onboarding</a>
+          <a href="mailto:hello@thecliniqai.com">hello@thecliniqai.com</a>
+          <a href="mailto:privacy@thecliniqai.com">privacy@thecliniqai.com</a>
+          <span style="font-size:12.5px;color:#64748B;margin-top:6px">Annual Plan: 10% Discount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div>© 2026 The CliniQ AI. All rights reserved. Registered Office: B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra.</div>
+      <div>Medical Disclaimer: The CliniQ AI provides administrative practice management tools and does not provide autonomous clinical advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const mobileToggle = document.getElementById("mobileToggle");
+const mobileDrawer = document.getElementById("mobileDrawer");
+
+mobileToggle.addEventListener("click", () => {
+  mobileDrawer.classList.toggle("open");
+  mobileToggle.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+});
+
+function closeDrawer() {
+  mobileDrawer.classList.remove("open");
+  mobileToggle.textContent = "☰";
+}
+
+document.getElementById('deletionForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('delName').value.trim();
+  const phone = document.getElementById('delPhone').value.trim();
+  const email = document.getElementById('delEmail').value.trim();
+  const reason = document.getElementById('delReason').value.trim() || 'General user/patient communication data deletion request';
+  const reqDate = new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  const subject = `[Data Deletion Request] - ${name} (${phone})`;
+  const body = `DATA DELETION & OPT-OUT REQUEST
+============================================================
+In accordance with Meta Platform Terms & DPDP Act 2023
+
+1. Requester Name: ${name}
+2. WhatsApp / Mobile Number: ${phone}
+3. Contact Email: ${email}
+4. Date of Request: ${reqDate}
+
+SCOPE OF PURGE:
+${reason}
+
+============================================================
+Submitted via The CliniQ AI Official Compliance Portal`;
+
+  const mailtoUri = `mailto:privacy@thecliniqai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  const statusEl = document.getElementById('statusNotice');
+  statusEl.style.display = 'block';
+  statusEl.innerHTML = `<strong>Drafting your data deletion request in your email client...</strong><br>
+    If your email app did not open automatically, <a href="${mailtoUri}" style="color:var(--teal);font-weight:700;text-decoration:underline">click here to send the drafted request directly</a>.`;
+
+  window.location.href = mailtoUri;
+});
+</script>
+</body>
+</html>

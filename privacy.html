@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Privacy Policy for The CliniQ AI — Outlining data protection, patient confidentiality, WhatsApp Business API data usage, and DPDP Act 2023 compliance.">
+<title>Privacy Policy — The CliniQ AI</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1B3D;
+  --navy-dark:#060F24;
+  --blue:#0284C7;
+  --blue-hover:#0369A1;
+  --blue-light:#E0F2FE;
+  --teal:#0D9488;
+  --teal-light:#CCFBF1;
+  --slate-50:#F8FAFC;
+  --slate-100:#F1F5F9;
+  --slate-200:#E2E8F0;
+  --slate-400:#94A3B8;
+  --slate-600:#475569;
+  --slate-800:#1E293B;
+  --white:#FFFFFF;
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --max:940px;
+  --shadow-subtle: 0 1px 3px rgba(11,27,61,0.04), 0 1px 2px rgba(11,27,61,0.02);
+  --shadow-card: 0 10px 30px -4px rgba(11,27,61,0.06), 0 4px 12px -2px rgba(11,27,61,0.03);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --slate-50:#0B1324;
+    --slate-100:#111C35;
+    --slate-200:#1E2D4E;
+    --slate-400:#8599B5;
+    --slate-600:#B0C2DE;
+    --slate-800:#F1F5F9;
+    --white:#0F1A33;
+    --navy:#FFFFFF;
+    --navy-dark:#050B17;
+    --blue-light:#132B4F;
+    --teal-light:#0F3330;
+  }
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  background:var(--slate-50);
+  color:var(--slate-800);
+  font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:inherit;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  color:var(--navy);
+  line-height:1.2;
+  margin:0;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14.5px;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all 120ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-align:center;
+}
+.btn:active{transform:scale(0.97)}
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 2px 10px rgba(2,132,199,0.3);
+}
+.btn-primary:hover{background:var(--blue-hover);box-shadow:0 4px 16px rgba(2,132,199,0.4);text-decoration:none}
+
+/* Navigation Bar */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:color-mix(in srgb, var(--slate-50) 85%, transparent);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--slate-200);
+}
+.nav-inner{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:min(1200px, calc(100% - 40px));
+  margin:auto;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-img{height:42px;width:auto;display:block}
+@media (prefers-color-scheme: dark){.brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
+.nav-links a{color:var(--slate-600)}
+.nav-links a:hover{color:var(--navy);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:14px}
+.mobile-toggle{
+  display:none;
+  background:none;
+  border:1px solid var(--slate-200);
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:18px;
+  color:var(--navy);
+  cursor:pointer;
+}
+.mobile-drawer{
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  padding:16px 20px 22px;
+  background:var(--white);
+  border-bottom:1px solid var(--slate-200);
+}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{padding:8px 0;font-size:15px;color:var(--slate-600);border-bottom:1px solid var(--slate-100);text-decoration:none}
+
+/* Legal Header */
+.legal-header{
+  padding:64px 0 40px;
+  border-bottom:1px solid var(--slate-200);
+  background:var(--white);
+}
+.legal-header h1{font-size:clamp(32px,4vw,46px);margin-bottom:12px}
+.legal-meta{font-size:14px;color:var(--slate-600)}
+
+/* Legal Body */
+.legal-body{padding:48px 0 88px}
+.legal-card{
+  background:var(--white);
+  border:1px solid var(--slate-200);
+  border-radius:var(--radius-lg);
+  padding:44px;
+  box-shadow:var(--shadow-card);
+}
+.legal-body h2{
+  font-size:22px;
+  margin:36px 0 14px;
+  padding-top:20px;
+  border-top:1px solid var(--slate-200);
+}
+.legal-body h2:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.legal-body h3{font-size:17px;margin:20px 0 8px}
+.legal-body p{color:var(--slate-600);font-size:15px;margin:0 0 16px}
+.legal-body ul, .legal-body ol{color:var(--slate-600);font-size:15px;padding-left:24px;margin:0 0 16px}
+.legal-body li{margin-bottom:8px}
+
+.highlight-box{
+  background:var(--teal-light);
+  border-left:4px solid var(--teal);
+  padding:18px 22px;
+  border-radius:0 12px 12px 0;
+  margin:24px 0;
+}
+.highlight-box p{margin:0;color:var(--slate-800);font-size:14.5px;line-height:1.6}
+
+/* Footer */
+footer{
+  background:var(--navy-dark);
+  color:#94A3B8;
+  padding:72px 0 36px;
+  border-top:1px solid #1E293B;
+}
+.footer-inner{width:min(1200px, calc(100% - 40px));margin:auto}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:44px;
+  margin-bottom:56px;
+}
+.footer-logo{height:38px;width:auto;display:block;margin-bottom:14px}
+.footer-brand p{font-size:14px;line-height:1.6;margin:0 0 12px;color:#94A3B8}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.footer-links a{color:#94A3B8;transition:color 0.15s;text-decoration:none}
+.footer-links a:hover{color:#fff}
+footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-spacing:-0.01em}
+.copyright{
+  border-top:1px solid #1E293B;
+  padding-top:28px;
+  font-size:13px;
+  color:#64748B;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+  line-height:1.5;
+}
+
+@media(max-width:960px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .legal-card{padding:26px 20px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#voice">AI Receptionist</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="nav-right">
+      <a href="index.html#demo" class="btn btn-primary" style="display:none;@media(min-width:768px){display:inline-flex}">Start Free Trial</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html#features" onclick="closeDrawer()">Features</a>
+    <a href="index.html#voice" onclick="closeDrawer()">AI Receptionist</a>
+    <a href="index.html#pricing" onclick="closeDrawer()">Pricing (₹999/mo)</a>
+    <a href="about.html" onclick="closeDrawer()">About Us</a>
+    <a href="contact.html" onclick="closeDrawer()">Contact Us</a>
+    <a href="index.html#demo" class="btn btn-primary" onclick="closeDrawer()" style="margin-top:8px">Start Free 60-Day Trial</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-header">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <div class="legal-meta">
+        <strong>The CliniQ AI Technologies</strong> · Effective Date: 5 October 2026 · Registered Office: Wakad, Pune, Maharashtra
+      </div>
+    </div>
+  </div>
+
+  <div class="container legal-body">
+    <div class="legal-card">
+      <div class="highlight-box">
+        <p><strong>Commitment to Patient &amp; Doctor Trust:</strong> The CliniQ AI is designed for outpatient healthcare practices in India. We adhere strictly to the <strong>Digital Personal Data Protection (DPDP) Act, 2023</strong>, <strong>Information Technology (IT) Rules, 2011</strong>, and <strong>Meta Platform / WhatsApp Business Platform Data Policies</strong>. We never sell, monetize, or broker patient health data.</p>
+      </div>
+
+      <h2>1. Overview and Scope</h2>
+      <p>This Privacy Policy explains how The CliniQ AI Technologies ("The CliniQ AI", "we", "us", or "our") collects, processes, stores, and protects personal data when licensed healthcare professionals, clinic staff ("Clinic Users"), and patients ("Patients") utilize our clinic operating system, web platform, voice reception interface, and WhatsApp integration.</p>
+
+      <h2>2. Categories of Information We Collect</h2>
+      <p>Depending on how you use our platform, we process the following categories of data:</p>
+      <ul>
+        <li><strong>Clinic &amp; Doctor Account Information:</strong> Doctor name, medical registration number (NMC/State Medical Council), clinic name, address, business email, phone number, and subscription billing details.</li>
+        <li><strong>Patient Operational Data:</strong> Patient full name, age/gender, contact phone number (WhatsApp-enabled), appointment date/time, token queue status, and visit reason provided during registration.</li>
+        <li><strong>Clinical Encounter Data (Doctor-Entered):</strong> Diagnosis notes, vitals, symptoms, electronic prescriptions, lab test requests, and follow-up schedules created and authorized by the licensed doctor.</li>
+        <li><strong>WhatsApp Communication Metadata:</strong> Message delivery timestamps, delivery status receipts, and appointment confirmation responses handled via the WhatsApp Business API.</li>
+        <li><strong>AI Voice Reception Records (Where Add-On is Enabled):</strong> Inbound phone audio recordings, real-time speech-to-text transcripts, and caller appointment preferences logged by the clinic's optional automated voice receptionist.</li>
+      </ul>
+
+      <h2>3. Purpose and Legal Basis for Processing</h2>
+      <p>We process personal and health data strictly for legitimate clinical and operational purposes under Section 7 of the DPDP Act 2023:</p>
+      <ul>
+        <li>To enable doctors and outpatient staff to schedule consultations, maintain queue tokens, and generate official electronic prescriptions.</li>
+        <li>To transmit automated appointment confirmations, reminders, clinic directions, and digital prescription PDFs to patients over WhatsApp on behalf of their consulting doctor.</li>
+        <li>To process subscription payments and generate GST-compliant invoices for clinics.</li>
+        <li>To maintain security audits, prevent fraudulent access, and ensure high system availability.</li>
+      </ul>
+
+      <h2>4. WhatsApp Business Platform &amp; Meta Policy Compliance</h2>
+      <p>Our platform integrates with Meta’s WhatsApp Business Platform to dispatch clinic communications. We operate under rigorous Meta compliance guidelines:</p>
+      <ul>
+        <li><strong>Explicit Purpose Limitation:</strong> Patient phone numbers are utilized strictly for sending clinic-related transaction alerts (prescriptions, appointment updates, follow-up notifications, and token updates) initiated by the clinic.</li>
+        <li><strong>No Third-Party Sharing:</strong> We do not share, lease, or distribute patient contact details with advertisers, pharmaceutical sponsors, or external data brokers.</li>
+        <li><strong>Patient Opt-Out:</strong> Any patient may opt out of automated WhatsApp messages at any time by replying "STOP" or "UNSUBSCRIBE" to the clinic's WhatsApp chat, or through our <a href="data-deletion.html">Data Deletion Instructions</a> page.</li>
+      </ul>
+
+      <h2>5. Data Architecture, Encryption &amp; Security Safeguards</h2>
+      <p>We implement multi-layered administrative, technical, and physical safeguards:</p>
+      <ul>
+        <li><strong>Data Isolation:</strong> Clinic databases are architected with strict multi-tenant logical isolation, ensuring clinic data cannot be accessed by other clinics.</li>
+        <li><strong>Encryption Standards:</strong> All data in transit is protected using TLS 1.3 with high-grade ciphers. All persistent databases, electronic prescription records, and backups are encrypted at rest using AES-256.</li>
+        <li><strong>Role-Based Access Control (RBAC):</strong> Clinic owners can configure granular access permissions for receptionists, associate doctors, and staff members.</li>
+      </ul>
+
+      <h2>6. Medical Record Retention &amp; NMC Exceptions</h2>
+      <p>Under the regulations of the <strong>National Medical Commission (NMC)</strong>, medical practitioners are legally required to retain clinical records and treatment charts for a statutory period (typically 3 years from the consultation date). Consequently, while patient contact profiles and WhatsApp subscriptions will be purged immediately upon request, clinical history legally mandated for statutory medical defense will be securely archived as required by Indian healthcare laws.</p>
+
+      <h2>7. Your Rights Under DPDP Act 2023</h2>
+      <p>As a Data Principal under Indian law, you have the right to:</p>
+      <ul>
+        <li><strong>Right to Access:</strong> Request a summary of the personal information stored in our system.</li>
+        <li><strong>Right to Correction &amp; Erasure:</strong> Request the correction of inaccurate details or the erasure of personal data that is no longer necessary, subject to medical statutory laws.</li>
+        <li><strong>Right of Grievance Redressal:</strong> Register grievances directly with our designated Data Protection desk.</li>
+        <li><strong>Right to Nominate:</strong> Nominate another individual to exercise your data rights in the event of death or incapacity.</li>
+      </ul>
+      <p>To exercise any of these rights, visit our <a href="data-deletion.html">Data Deletion Instructions</a> page or contact our Grievance Officer.</p>
+
+      <h2>8. Grievance Officer Contact Details</h2>
+      <p>In accordance with the Information Technology Act 2000 and the DPDP Act 2023, the details of our Grievance Officer are provided below:</p>
+      <p>
+        <strong>Grievance &amp; Data Protection Officer</strong><br>
+        The CliniQ AI Technologies<br>
+        Address: B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra, India<br>
+        Email: <a href="mailto:privacy@thecliniqai.com">privacy@thecliniqai.com</a><br>
+        Response SLA: Grievance acknowledgment within 48 hours; resolution within 30 days.
+      </p>
+
+      <h2>9. Updates to this Policy</h2>
+      <p>We may periodically update this Privacy Policy to reflect regulatory evolutions or product enhancements. Substantial modifications will be highlighted through in-app notices or direct email communications to clinic administrators.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/the-cliniq-ai-logo-white.png" alt="The CliniQ AI" class="footer-logo">
+        </a>
+        <p>The modern, intuitive clinic operating system built for independent doctors and outpatient clinics in India.</p>
+        <div style="font-size:13px;color:#64748B;margin-top:12px">
+          Support: <a href="mailto:hello@thecliniqai.com" style="color:#94A3B8">hello@thecliniqai.com</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <div class="footer-links">
+          <a href="index.html#features">Core Features</a>
+          <a href="index.html#voice">AI Receptionist (Add-on)</a>
+          <a href="index.html#pricing">Pricing (₹999/mo)</a>
+          <a href="index.html#demo">60-Day Free Trial</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Company &amp; Legal</h4>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="data-deletion.html">Data Deletion Instructions</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Clinic Support</h4>
+        <div class="footer-links">
+          <a href="index.html#faq">Doctor FAQs</a>
+          <a href="contact.html">Schedule Demo / Onboarding</a>
+          <a href="mailto:hello@thecliniqai.com">hello@thecliniqai.com</a>
+          <a href="mailto:privacy@thecliniqai.com">privacy@thecliniqai.com</a>
+          <span style="font-size:12.5px;color:#64748B;margin-top:6px">Annual Plan: 10% Discount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div>© 2026 The CliniQ AI. All rights reserved. Registered Office: B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra.</div>
+      <div>Medical Disclaimer: The CliniQ AI provides administrative practice management tools and does not provide autonomous clinical advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const mobileToggle = document.getElementById("mobileToggle");
+const mobileDrawer = document.getElementById("mobileDrawer");
+
+mobileToggle.addEventListener("click", () => {
+  mobileDrawer.classList.toggle("open");
+  mobileToggle.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+});
+
+function closeDrawer() {
+  mobileDrawer.classList.remove("open");
+  mobileToggle.textContent = "☰";
+}
+</script>
+</body>
+</html>

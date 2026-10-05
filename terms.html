@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Terms and Conditions of The CliniQ AI — User agreements, ₹999/month subscription policies, 60-day free trial terms, and doctor clinical responsibilities.">
+<title>Terms &amp; Conditions — The CliniQ AI</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1B3D;
+  --navy-dark:#060F24;
+  --blue:#0284C7;
+  --blue-hover:#0369A1;
+  --blue-light:#E0F2FE;
+  --teal:#0D9488;
+  --teal-light:#CCFBF1;
+  --slate-50:#F8FAFC;
+  --slate-100:#F1F5F9;
+  --slate-200:#E2E8F0;
+  --slate-400:#94A3B8;
+  --slate-600:#475569;
+  --slate-800:#1E293B;
+  --white:#FFFFFF;
+  --radius-sm:8px;
+  --radius-md:14px;
+  --radius-lg:22px;
+  --max:940px;
+  --shadow-subtle: 0 1px 3px rgba(11,27,61,0.04), 0 1px 2px rgba(11,27,61,0.02);
+  --shadow-card: 0 10px 30px -4px rgba(11,27,61,0.06), 0 4px 12px -2px rgba(11,27,61,0.03);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --slate-50:#0B1324;
+    --slate-100:#111C35;
+    --slate-200:#1E2D4E;
+    --slate-400:#8599B5;
+    --slate-600:#B0C2DE;
+    --slate-800:#F1F5F9;
+    --white:#0F1A33;
+    --navy:#FFFFFF;
+    --navy-dark:#050B17;
+    --blue-light:#132B4F;
+    --teal-light:#0F3330;
+  }
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  background:var(--slate-50);
+  color:var(--slate-800);
+  font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:inherit;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  color:var(--navy);
+  line-height:1.2;
+  margin:0;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14.5px;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all 120ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-align:center;
+}
+.btn:active{transform:scale(0.97)}
+.btn-primary{
+  background:var(--blue);
+  color:#fff;
+  box-shadow:0 2px 10px rgba(2,132,199,0.3);
+}
+.btn-primary:hover{background:var(--blue-hover);box-shadow:0 4px 16px rgba(2,132,199,0.4);text-decoration:none}
+
+/* Navigation Bar */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:color-mix(in srgb, var(--slate-50) 85%, transparent);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--slate-200);
+}
+.nav-inner{
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:min(1200px, calc(100% - 40px));
+  margin:auto;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-img{height:42px;width:auto;display:block}
+@media (prefers-color-scheme: dark){.brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--slate-600)}
+.nav-links a{color:var(--slate-600)}
+.nav-links a:hover{color:var(--navy);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:14px}
+.mobile-toggle{
+  display:none;
+  background:none;
+  border:1px solid var(--slate-200);
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:18px;
+  color:var(--navy);
+  cursor:pointer;
+}
+.mobile-drawer{
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  padding:16px 20px 22px;
+  background:var(--white);
+  border-bottom:1px solid var(--slate-200);
+}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{padding:8px 0;font-size:15px;color:var(--slate-600);border-bottom:1px solid var(--slate-100);text-decoration:none}
+
+/* Legal Header */
+.legal-header{
+  padding:64px 0 40px;
+  border-bottom:1px solid var(--slate-200);
+  background:var(--white);
+}
+.legal-header h1{font-size:clamp(32px,4vw,46px);margin-bottom:12px}
+.legal-meta{font-size:14px;color:var(--slate-600)}
+
+/* Legal Body */
+.legal-body{padding:48px 0 88px}
+.legal-card{
+  background:var(--white);
+  border:1px solid var(--slate-200);
+  border-radius:var(--radius-lg);
+  padding:44px;
+  box-shadow:var(--shadow-card);
+}
+.legal-body h2{
+  font-size:22px;
+  margin:36px 0 14px;
+  padding-top:20px;
+  border-top:1px solid var(--slate-200);
+}
+.legal-body h2:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.legal-body h3{font-size:17px;margin:20px 0 8px}
+.legal-body p{color:var(--slate-600);font-size:15px;margin:0 0 16px}
+.legal-body ul, .legal-body ol{color:var(--slate-600);font-size:15px;padding-left:24px;margin:0 0 16px}
+.legal-body li{margin-bottom:8px}
+
+.highlight-box{
+  background:var(--blue-light);
+  border-left:4px solid var(--blue);
+  padding:18px 22px;
+  border-radius:0 12px 12px 0;
+  margin:24px 0;
+}
+.highlight-box p{margin:0;color:var(--navy);font-size:14.5px;line-height:1.6}
+
+/* Footer */
+footer{
+  background:var(--navy-dark);
+  color:#94A3B8;
+  padding:72px 0 36px;
+  border-top:1px solid #1E293B;
+}
+.footer-inner{width:min(1200px, calc(100% - 40px));margin:auto}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:44px;
+  margin-bottom:56px;
+}
+.footer-logo{height:38px;width:auto;display:block;margin-bottom:14px}
+.footer-brand p{font-size:14px;line-height:1.6;margin:0 0 12px;color:#94A3B8}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.footer-links a{color:#94A3B8;transition:color 0.15s;text-decoration:none}
+.footer-links a:hover{color:#fff}
+footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:18px;letter-spacing:-0.01em}
+.copyright{
+  border-top:1px solid #1E293B;
+  padding-top:28px;
+  font-size:13px;
+  color:#64748B;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+  line-height:1.5;
+}
+
+@media(max-width:960px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .legal-card{padding:26px 20px}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img">
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#voice">AI Receptionist</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="nav-right">
+      <a href="index.html#demo" class="btn btn-primary" style="display:none;@media(min-width:768px){display:inline-flex}">Start Free Trial</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html#features" onclick="closeDrawer()">Features</a>
+    <a href="index.html#voice" onclick="closeDrawer()">AI Receptionist</a>
+    <a href="index.html#pricing" onclick="closeDrawer()">Pricing (₹999/mo)</a>
+    <a href="about.html" onclick="closeDrawer()">About Us</a>
+    <a href="contact.html" onclick="closeDrawer()">Contact Us</a>
+    <a href="index.html#demo" class="btn btn-primary" onclick="closeDrawer()" style="margin-top:8px">Start Free 60-Day Trial</a>
+  </div>
+</header>
+
+<main>
+  <div class="legal-header">
+    <div class="container">
+      <h1>Terms &amp; Conditions</h1>
+      <div class="legal-meta">
+        <strong>The CliniQ AI Technologies</strong> · Effective Date: 5 October 2026 · Registered Office: Wakad, Pune, Maharashtra
+      </div>
+    </div>
+  </div>
+
+  <div class="container legal-body">
+    <div class="legal-card">
+      <div class="highlight-box">
+        <p><strong>Essential Notice:</strong> The CliniQ AI provides software tools to assist licensed healthcare providers with clinic operations, queue management, electronic prescriptions, and patient communication. <strong>The CliniQ AI is not a healthcare provider and does not practice medicine.</strong> All medical decisions, treatment recommendations, and prescription authorizations remain solely with the licensed doctor.</p>
+      </div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>These Terms and Conditions ("Terms") constitute a legally binding agreement between you ("Customer", "Doctor", "Clinic", or "User") and The CliniQ AI Technologies ("The CliniQ AI", "we", "us", or "our"), governing access to and use of our web portal, software services, WhatsApp automated messaging, and voice reception interfaces.</p>
+      <p>By registering a clinic account, activating the 60-day free trial, or accessing our platform, you agree to comply with and be bound by these Terms.</p>
+
+      <h2>2. Subscription Plans, 60-Day Trial &amp; Billing Terms</h2>
+      <ul>
+        <li><strong>Base Clinic Operating Plan:</strong> The standard subscription is priced at <strong>₹999 per month per clinic</strong> (plus applicable GST). This includes unlimited doctor and staff logins, appointment booking, queue token system, electronic prescriptions, and WhatsApp notifications.</li>
+        <li><strong>Annual Discount:</strong> Clinics opting for annual upfront billing receive a <strong>10% discount</strong> (effective <strong>₹899 per month</strong>, billed as ₹10,788 annually).</li>
+        <li><strong>60-Day Risk-Free Trial:</strong> New clinics are eligible for a 60-calendar-day trial of our base system with zero upfront commitment and no credit card required. You may cancel at any time during or after the trial without penalty.</li>
+        <li><strong>AI Voice Receptionist (Optional Add-On):</strong> The AI Voice Receptionist is a separate specialized add-on product and is <strong>not included</strong> in the base ₹999/month plan. Pricing and billing terms for the AI Receptionist will be announced separately (Waitlist registration is available).</li>
+        <li><strong>No Hidden Cancellation Fees:</strong> Subscriptions can be canceled at any point directly from the clinic billing portal without lock-in periods.</li>
+      </ul>
+
+      <h2>3. Doctor &amp; Healthcare Professional Responsibilities</h2>
+      <p>By using The CliniQ AI, doctors and clinics agree and warrant that:</p>
+      <ul>
+        <li>Prescribing practitioners possess valid medical registrations recognized by the <strong>National Medical Commission (NMC)</strong> or respective State Medical Councils.</li>
+        <li>All clinical details, dosages, and drug interactions on electronic prescriptions are independently reviewed and validated by the doctor prior to issuing them to patients.</li>
+        <li>Clinic staff comply with applicable patient confidentiality guidelines and the Digital Personal Data Protection (DPDP) Act, 2023.</li>
+      </ul>
+
+      <h2>4. WhatsApp Business Platform &amp; Patient Communications</h2>
+      <p>The CliniQ AI provides communication automation powered by the Meta WhatsApp Business API. Clinics utilizing this feature agree that:</p>
+      <ul>
+        <li>Messages sent to patients must strictly relate to clinic appointments, queue tokens, e-prescriptions, lab requests, or direct clinic updates.</li>
+        <li>Clinics must honor patient opt-out requests immediately. Any patient who replies "STOP" or "UNSUBSCRIBE" must not receive non-essential automated communications.</li>
+        <li>Clinics must not use The CliniQ AI messaging infrastructure for unsolicited spam or non-clinical marketing campaigns.</li>
+      </ul>
+
+      <h2>5. Clinic Data Ownership &amp; Medical Records Retention</h2>
+      <p>You retain 100% ownership of your clinic records, doctor profiles, patient encounter histories, and generated prescription PDFs. We do not sell or monetize clinic or patient records.</p>
+      <p>In accordance with statutory Indian medical ethics (NMC guidelines), medical practitioners bear statutory responsibility for retaining patient clinical charts for the mandated retention period (minimum 3 years). Clinics may export their data at any time in standard formats.</p>
+
+      <h2>6. Intellectual Property</h2>
+      <p>The CliniQ AI software, design system, proprietary algorithms, brand assets, logos, and documentation remain the exclusive intellectual property of The CliniQ AI Technologies. You are granted a limited, non-exclusive, non-transferable license to utilize the service during your active subscription.</p>
+
+      <h2>7. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by applicable Indian law, The CliniQ AI shall not be liable for any direct, indirect, incidental, or consequential damages resulting from medical malpractice, clinical misdiagnosis, clinical outcomes, telecommunication network downtime, or third-party WhatsApp service disruptions outside our direct control.</p>
+
+      <h2>8. Governing Law &amp; Exclusive Jurisdiction</h2>
+      <p>These Terms shall be governed by, construed, and interpreted in accordance with the laws of the Republic of India. Any legal dispute, proceeding, or arbitration arising under or relating to these Terms shall be subject to the exclusive jurisdiction of the competent courts in <strong>Pune, Maharashtra, India</strong>.</p>
+
+      <h2>9. Contact &amp; Legal Inquiries</h2>
+      <p>For questions regarding these Terms or licensing agreements, contact:</p>
+      <p>
+        <strong>Legal &amp; Contracts Team</strong><br>
+        The CliniQ AI Technologies<br>
+        Address: B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra, India<br>
+        Email: <a href="mailto:hello@thecliniqai.com">hello@thecliniqai.com</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html">
+          <img src="assets/the-cliniq-ai-logo-white.png" alt="The CliniQ AI" class="footer-logo">
+        </a>
+        <p>The modern, intuitive clinic operating system built for independent doctors and outpatient clinics in India.</p>
+        <div style="font-size:13px;color:#64748B;margin-top:12px">
+          Support: <a href="mailto:hello@thecliniqai.com" style="color:#94A3B8">hello@thecliniqai.com</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <div class="footer-links">
+          <a href="index.html#features">Core Features</a>
+          <a href="index.html#voice">AI Receptionist (Add-on)</a>
+          <a href="index.html#pricing">Pricing (₹999/mo)</a>
+          <a href="index.html#demo">60-Day Free Trial</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Company &amp; Legal</h4>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact Us</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="data-deletion.html">Data Deletion Instructions</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Clinic Support</h4>
+        <div class="footer-links">
+          <a href="index.html#faq">Doctor FAQs</a>
+          <a href="contact.html">Schedule Demo / Onboarding</a>
+          <a href="mailto:hello@thecliniqai.com">hello@thecliniqai.com</a>
+          <a href="mailto:privacy@thecliniqai.com">privacy@thecliniqai.com</a>
+          <span style="font-size:12.5px;color:#64748B;margin-top:6px">Annual Plan: 10% Discount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div>© 2026 The CliniQ AI. All rights reserved. Registered Office: B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra.</div>
+      <div>Medical Disclaimer: The CliniQ AI provides administrative practice management tools and does not provide autonomous clinical advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const mobileToggle = document.getElementById("mobileToggle");
+const mobileDrawer = document.getElementById("mobileDrawer");
+
+mobileToggle.addEventListener("click", () => {
+  mobileDrawer.classList.toggle("open");
+  mobileToggle.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+});
+
+function closeDrawer() {
+  mobileDrawer.classList.remove("open");
+  mobileToggle.textContent = "☰";
+}
+</script>
+</body>
+</html>
