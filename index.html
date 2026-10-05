@@ -1,0 +1,1564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="The CliniQ AI — The complete clinical OS for independent clinics in India. Appointments, records, e-prescriptions, and WhatsApp workflows for ₹999/month. 60-day free trial, cancel anytime. AI receptionist add-on available.">
+<title>The CliniQ AI — Run your whole clinic. Including the phone.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10202E;
+  --paper:#FAF7F2;
+  --card:#FFFFFF;
+  --card-subtle:#F4EFE7;
+  --line:#E5DEC9;
+  --line-strong:#D4CABA;
+  --muted:#5D6D6E;
+  --muted-light:#7F9292;
+  --emerald:#166852;
+  --emerald-light:#E5F5EF;
+  --emerald-ink:#0A4535;
+  --coral:#E15426;
+  --coral-light:#FDEDE7;
+  --coral-ink:#A73713;
+  --night:#0B1C22;
+  --night-card:#12252C;
+  --night-border:#1D3740;
+  --radius:18px;
+  --radius-sm:10px;
+  --max:1180px;
+  --shadow-sm: 0 2px 8px rgba(16,32,46,0.04);
+  --shadow-md: 0 10px 30px rgba(16,32,46,0.07);
+  --shadow-lg: 0 20px 50px rgba(16,32,46,0.12);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F4EFE4; --paper:#0A161A; --card:#112228; --card-subtle:#172C33;
+    --line:#1E333B; --line-strong:#29434C; --muted:#9EB0AB; --muted-light:#798F8A;
+    --emerald:#47B393; --emerald-light:#13332A; --emerald-ink:#8CE5CB;
+    --coral:#F0683D; --coral-light:#351A12; --coral-ink:#FFA285;
+    --night:#050F12; --night-card:#0B1C22; --night-border:#18323B;
+  }
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:Fraunces,Georgia,serif;
+  font-weight:600;
+  letter-spacing:-.015em;
+  line-height:1.15;
+  margin:0;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+
+/* Pills & Badges */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  padding:5px 12px;
+  border-radius:100px;
+}
+.badge-emerald{background:var(--emerald-light);color:var(--emerald-ink);border:1px solid rgba(22,104,82,0.2)}
+.badge-coral{background:var(--coral-light);color:var(--coral-ink);border:1px solid rgba(225,84,38,0.25)}
+.badge-night{background:rgba(255,255,255,0.08);color:#9DE6CE;border:1px solid rgba(255,255,255,0.14)}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(225,84,38,0.6)} 70%{box-shadow:0 0 0 8px rgba(225,84,38,0)} 100%{box-shadow:0 0 0 0 rgba(225,84,38,0)}}
+
+/* Header Navigation */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .25s ease;
+}
+.nav-inner{
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-img{height:46px;width:auto;display:block;object-fit:contain;transition:transform .18s ease}
+.brand:hover .brand-img{transform:scale(1.02)}
+@media (prefers-color-scheme: dark){
+  .brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}
+}
+:root[data-theme="dark"] .brand-img{content:url("assets/the-cliniq-ai-logo-white.png")}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;color:var(--muted)}
+.nav-links a{transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-cta{
+  padding:10px 18px;
+  background:var(--ink);
+  color:var(--paper);
+  border-radius:10px;
+  font-size:14px;
+  font-weight:600;
+  transition:all .18s ease;
+}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+.mobile-toggle{
+  display:none;
+  background:none;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:18px;
+  color:var(--ink);
+  cursor:pointer;
+}
+.mobile-drawer{
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  padding:18px 20px 24px;
+  background:var(--card);
+  border-bottom:1px solid var(--line);
+}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{font-size:15px;font-weight:500;padding:6px 0}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:11px;
+  font-weight:600;
+  font-size:15px;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:all .2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align:center;
+}
+.btn-primary{
+  background:var(--coral);
+  color:#fff;
+  box-shadow:0 4px 14px rgba(225,84,38,0.28);
+}
+.btn-primary:hover{
+  background:var(--coral-ink);
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(225,84,38,0.36);
+}
+.btn-secondary{
+  background:transparent;
+  border-color:var(--line-strong);
+  color:var(--ink);
+}
+.btn-secondary:hover{
+  background:var(--card-subtle);
+  transform:translateY(-2px);
+}
+.btn-emerald{
+  background:var(--emerald);
+  color:#fff;
+  box-shadow:0 4px 14px rgba(22,104,82,0.24);
+}
+.btn-emerald:hover{
+  background:var(--emerald-ink);
+  transform:translateY(-2px);
+}
+.btn-white{
+  background:#fff;
+  color:var(--night);
+  font-weight:700;
+}
+.btn-white:hover{
+  background:rgba(255,255,255,0.92);
+  transform:translateY(-2px);
+}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Hero Section */
+.hero{padding:60px 0 80px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";
+  position:absolute;
+  top:-200px;
+  right:-150px;
+  width:680px;
+  height:680px;
+  background:radial-gradient(circle, rgba(22,104,82,0.08) 0%, rgba(225,84,38,0.03) 50%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:48px;
+  align-items:center;
+}
+.hero-content{display:flex;flex-direction:column;gap:16px}
+.hero h1{
+  font-size:clamp(38px,4.8vw,58px);
+  line-height:1.06;
+  max-width:640px;
+}
+.hero h1 .highlight{
+  color:var(--emerald);
+  display:inline-block;
+  position:relative;
+}
+.hero p.sub{
+  font-size:18px;
+  color:var(--muted);
+  max-width:520px;
+  line-height:1.55;
+  margin:4px 0 8px;
+}
+.trial-strip{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:10px 14px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:var(--shadow-sm);
+  width:fit-content;
+}
+.trial-strip-item{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink);
+}
+.trial-strip-item .icon{color:var(--emerald);font-weight:700}
+.hero-footnote{
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.5;
+  margin-top:4px;
+}
+.hero-footnote b{color:var(--ink)}
+
+/* Call Card / Visual Demo */
+.callcard{
+  background:var(--night);
+  color:#E6EFEA;
+  border-radius:24px;
+  padding:6px;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+}
+.callcard::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:25px;
+  background:linear-gradient(135deg, rgba(71,179,147,0.4), rgba(255,255,255,0.05), rgba(225,84,38,0.2));
+  z-index:-1;
+}
+.callcard-inner{
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;
+  padding:24px;
+  background:var(--night-card);
+}
+.callcard-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--night-border);
+  margin-bottom:18px;
+}
+.callcard-badge{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.call-status-indicator{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#34D399;
+  animation:pulse 1.8s infinite;
+}
+.callcard-top .who{font-size:14px;color:#C1DFD5;font-weight:600}
+.callcard-top .meta{font-size:12px;color:#78998F}
+.addon-tag-pill{
+  font-size:11px;
+  font-weight:700;
+  background:rgba(225,84,38,0.22);
+  color:#FF9C7D;
+  border:1px solid rgba(225,84,38,0.4);
+  padding:3px 8px;
+  border-radius:6px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.bubble{
+  max-width:88%;
+  padding:12px 16px;
+  border-radius:15px;
+  font-size:14px;
+  margin-bottom:12px;
+  line-height:1.45;
+}
+.bubble.caller{
+  background:rgba(255,255,255,0.08);
+  border-bottom-left-radius:3px;
+  color:#EDF5F2;
+}
+.bubble.ai{
+  background:var(--emerald);
+  color:#fff;
+  margin-left:auto;
+  border-bottom-right-radius:3px;
+}
+.confirm-box{
+  margin-top:16px;
+  padding:14px 16px;
+  border-radius:12px;
+  background:rgba(46,182,143,0.12);
+  border:1px solid rgba(46,182,143,0.3);
+  font-size:13px;
+  color:#A6F2D8;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Strip Stats */
+.strip{
+  padding:34px 0;
+  background:var(--card);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.strip-item{padding:0 8px}
+.strip-item b{
+  display:block;
+  font-family:Fraunces,serif;
+  font-size:28px;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.1;
+}
+.strip-item span{font-size:13.5px;color:var(--muted);display:block;margin-top:5px}
+
+/* Sections */
+.section{padding:84px 0}
+.section-alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section-head{max-width:680px;margin-bottom:44px}
+.section h2{font-size:clamp(28px,3.5vw,42px);line-height:1.12;margin:10px 0 12px}
+.section-head p{color:var(--muted);font-size:17.5px;line-height:1.5;margin:0}
+
+/* Comparison Matrix */
+.compare-container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+.compare-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:32px;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.compare-card.positive{
+  border-color:rgba(22,104,82,0.35);
+  background:color-mix(in srgb, var(--card) 95%, var(--emerald));
+  box-shadow:var(--shadow-md);
+  position:relative;
+}
+.compare-card h3{font-size:18px;margin-bottom:4px}
+.compare-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.compare-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.5}
+.compare-list .icon-cross{color:#C93824;font-weight:700;font-size:17px;line-height:1.2}
+.compare-list .icon-check{color:var(--emerald);font-weight:700;font-size:17px;line-height:1.2}
+
+/* Feature Grid */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.feature-box{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+  transition:all .22s ease;
+  display:flex;
+  flex-direction:column;
+}
+.feature-box:hover{
+  transform:translateY(-4px);
+  border-color:var(--line-strong);
+  box-shadow:var(--shadow-md);
+}
+.feature-icon{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:var(--card-subtle);
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  margin-bottom:16px;
+}
+.feature-box h3{font-size:18px;margin-bottom:8px}
+.feature-box p{color:var(--muted);font-size:14.5px;margin:0;line-height:1.5}
+
+/* AI Receptionist Section */
+.voice-hero{
+  background:var(--night);
+  color:#E8F0EC;
+  border-radius:28px;
+  padding:54px 50px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:48px;
+  align-items:center;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--night-border);
+}
+.voice-hero h2{color:#fff;font-size:clamp(28px,3.4vw,40px);margin:14px 0 16px}
+.voice-hero p.lead{color:#BAD0C8;font-size:16.5px;line-height:1.55;margin:0 0 24px}
+.voice-checklist{display:flex;flex-direction:column;gap:14px}
+.voice-check-item{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#D3E3DD}
+.voice-check-item .bullet{color:#4EDBBA;font-weight:700;line-height:1.3}
+.voice-addon-callout{
+  margin-top:28px;
+  padding:18px 20px;
+  background:rgba(225,84,38,0.12);
+  border:1px solid rgba(225,84,38,0.3);
+  border-radius:14px;
+  color:#FFD1C2;
+  font-size:14px;
+  line-height:1.5;
+}
+.voice-addon-callout strong{color:#FFA385}
+
+.voice-card{
+  background:var(--night-card);
+  border:1px solid var(--night-border);
+  border-radius:22px;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.voice-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.voice-stat-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:14px;
+  padding:16px;
+}
+.voice-stat-card .num{font-family:Fraunces,serif;font-size:30px;font-weight:600;color:#57E5BF}
+.voice-stat-card .desc{font-size:12.5px;color:#8AA49C;margin-top:4px}
+.voice-audio-preview{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:16px;
+}
+.voice-audio-top{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#8AA49C;margin-bottom:8px}
+.waveform{display:flex;align-items:center;gap:3px;height:24px;margin-top:6px}
+.waveform-bar{flex:1;background:#2F836E;border-radius:3px;animation:wave 1.2s ease-in-out infinite alternate}
+.waveform-bar:nth-child(2){animation-delay:.15s;height:60%}
+.waveform-bar:nth-child(3){animation-delay:.3s;height:90%}
+.waveform-bar:nth-child(4){animation-delay:.45s;height:40%}
+.waveform-bar:nth-child(5){animation-delay:.6s;height:80%}
+.waveform-bar:nth-child(6){animation-delay:.75s;height:30%}
+.waveform-bar:nth-child(7){animation-delay:.9s;height:70%}
+@keyframes wave{0%{transform:scaleY(0.4)} 100%{transform:scaleY(1)}}
+
+/* Workflow */
+.workflow-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+}
+.step-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  position:relative;
+}
+.step-num{
+  font-family:Fraunces,serif;
+  font-size:26px;
+  font-weight:700;
+  color:var(--emerald);
+  line-height:1;
+}
+.step-card h3{font-size:16px;margin:2px 0}
+.step-card p{font-size:13px;color:var(--muted);margin:0;line-height:1.45}
+
+/* Pricing Section */
+.pricing-section{padding:90px 0}
+.pricing-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:28px;
+  align-items:stretch;
+}
+.plan-card{
+  background:var(--card);
+  border:2px solid var(--emerald);
+  border-radius:24px;
+  padding:42px 38px;
+  box-shadow:var(--shadow-lg);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.plan-top-badge{
+  position:absolute;
+  top:-14px;
+  left:38px;
+  background:var(--emerald);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  padding:5px 14px;
+  border-radius:100px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.plan-header{margin-bottom:20px}
+.plan-header h3{font-size:24px;margin-bottom:6px}
+.plan-header p{color:var(--muted);font-size:15px;margin:0}
+
+.price-row{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  margin:18px 0 6px;
+}
+.price-currency{font-family:Fraunces,serif;font-size:32px;font-weight:600;color:var(--ink)}
+.price-amount{font-family:Fraunces,serif;font-size:56px;font-weight:700;color:var(--ink);line-height:1}
+.price-period{color:var(--muted);font-size:15px;font-weight:500}
+.price-discount-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--emerald-light);
+  color:var(--emerald-ink);
+  font-size:13px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:8px;
+  margin-bottom:20px;
+}
+
+.trial-guarantee-box{
+  background:var(--card-subtle);
+  border:1px dashed var(--line-strong);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:26px;
+  font-size:13.5px;
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.trial-guarantee-box b{color:var(--emerald-ink)}
+
+.plan-features-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 32px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.plan-features-list li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:15px;
+  color:var(--ink);
+}
+.plan-features-list .ck{
+  color:var(--emerald);
+  font-weight:800;
+  font-size:16px;
+}
+
+/* Add-on Card Beside */
+.addon-card-container{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.addon-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:32px;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  position:relative;
+}
+.addon-card.featured{
+  background:color-mix(in srgb, var(--card) 94%, var(--coral));
+  border-color:rgba(225,84,38,0.3);
+}
+.addon-card h4{font-size:20px}
+.addon-card p{color:var(--muted);font-size:14px;margin:0;line-height:1.5}
+.addon-price-tba{
+  display:inline-block;
+  padding:6px 12px;
+  background:var(--coral-light);
+  color:var(--coral-ink);
+  border-radius:8px;
+  font-weight:700;
+  font-size:13.5px;
+}
+.pricing-reassurance-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.reassurance-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px 20px;
+}
+.reassurance-item strong{display:block;font-size:15px;color:var(--ink);margin-bottom:2px}
+.reassurance-item p{color:var(--muted);font-size:13.5px;margin:0}
+
+/* Security & Compliance */
+.security-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.sec-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.sec-icon{font-size:24px;margin-bottom:6px}
+.sec-card strong{font-size:16px;color:var(--ink)}
+.sec-card p{color:var(--muted);font-size:13.5px;margin:0;line-height:1.45}
+
+/* FAQ Accordion */
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-bottom:12px;
+  overflow:hidden;
+  transition:border-color .15s ease;
+}
+.faq-item[open]{border-color:var(--emerald)}
+.faq-item summary{
+  padding:20px 24px;
+  font-size:16.5px;
+  font-weight:600;
+  color:var(--ink);
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  list-style:none;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";
+  font-size:22px;
+  font-weight:400;
+  color:var(--muted);
+  transition:transform .2s ease;
+}
+.faq-item[open] summary::after{
+  content:"−";
+  color:var(--emerald);
+}
+.faq-content{
+  padding:0 24px 22px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* Bottom CTA Banner */
+.cta-banner{
+  background:linear-gradient(135deg, var(--emerald) 0%, #0F4839 100%);
+  color:#fff;
+  border-radius:28px;
+  padding:60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:36px;
+  box-shadow:var(--shadow-lg);
+  position:relative;
+  overflow:hidden;
+}
+.cta-banner::before{
+  content:"";
+  position:absolute;
+  top:-50%;
+  right:-10%;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  pointer-events:none;
+}
+.cta-banner h2{color:#fff;font-size:clamp(30px,3.6vw,44px);margin-bottom:12px}
+.cta-banner p{color:rgba(255,255,255,0.85);font-size:17.5px;max-width:540px;margin:0;line-height:1.55}
+
+/* Footer */
+.footer{
+  background:var(--night);
+  color:#A8BCB5;
+  padding:64px 0 32px;
+  border-top:1px solid var(--night-border);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:44px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:14px}
+.footer-logo{height:42px;width:auto;display:block}
+.footer-brand p{font-size:14px;color:#7B948C;max-width:320px;line-height:1.55;margin:0}
+.footer h4{color:#fff;font-size:15px;margin-bottom:14px;font-family:"IBM Plex Sans",sans-serif;font-weight:600}
+.footer-links{display:flex;flex-direction:column;gap:10px;font-size:14px}
+.footer-links a{color:#A8BCB5;transition:color .15s}
+.footer-links a:hover{color:#fff}
+.copyright{
+  border-top:1px solid rgba(255,255,255,0.08);
+  margin-top:48px;
+  padding-top:24px;
+  font-size:12.5px;
+  color:#668077;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* Modals */
+.modal{display:none;position:fixed;inset:0;background:rgba(7,18,21,.75);z-index:1000;padding:24px;overflow:auto}
+.modal.open{display:flex;align-items:center;justify-content:center}
+.modal-card{
+  background:var(--card);
+  max-width:800px;
+  width:100%;
+  border-radius:20px;
+  padding:36px;
+  box-shadow:var(--shadow-lg);
+  max-height:85vh;
+  overflow-y:auto;
+}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.close-btn{
+  background:var(--card-subtle);
+  border:1px solid var(--line);
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  color:var(--ink);
+}
+.modal-body{color:var(--muted);font-size:14.5px;line-height:1.6}
+.modal-body h3{color:var(--ink);margin:20px 0 8px}
+
+/* Responsive */
+@media(max-width:1020px){
+  .hero-grid, .pricing-grid, .voice-hero{grid-template-columns:1fr;gap:36px}
+  .strip-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .compare-container{grid-template-columns:1fr}
+  .workflow-grid{grid-template-columns:repeat(3,1fr)}
+  .security-grid{grid-template-columns:repeat(2,1fr)}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .cta-banner{flex-direction:column;align-items:flex-start;padding:40px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mobile-toggle{display:block}
+  .strip-grid{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr}
+  .workflow-grid{grid-template-columns:1fr}
+  .security-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .section{padding:56px 0}
+  .hero{padding:40px 0 60px}
+  .voice-hero{padding:32px 24px}
+  .plan-card{padding:30px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header Navigation -->
+<header class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="#top">
+      <img src="assets/the-cliniq-ai-logo.png" alt="The CliniQ AI Logo" class="brand-img" height="46">
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#voice">AI Receptionist <span class="addon-tag-pill" style="margin-left:4px;font-size:9px">Add-on</span></a>
+      <a href="#pricing">Pricing</a>
+      <a href="#security">Security</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="#demo">Start 60-Day Free Trial</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">☰</button>
+    </div>
+  </div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#features" onclick="closeDrawer()">Features</a>
+    <a href="#voice" onclick="closeDrawer()">AI Receptionist (Add-on)</a>
+    <a href="#pricing" onclick="closeDrawer()">Pricing (₹999/mo)</a>
+    <a href="#security" onclick="closeDrawer()">Security & DPDP</a>
+    <a href="#faq" onclick="closeDrawer()">FAQ</a>
+    <a href="#demo" onclick="closeDrawer()" style="color:var(--coral);font-weight:700">Start 60-Day Free Trial →</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="badge badge-coral">
+        <span class="pulse-dot"></span>
+        60-Day Free Trial · Cancel Anytime
+      </div>
+      <h1>Run your whole clinic from one place. <span class="highlight">Including the phone.</span></h1>
+      <p class="sub">Appointments, unified patient history, bilingual e-prescriptions, and automated WhatsApp follow-ups — designed exclusively for solo and outpatient clinics in India.</p>
+
+      <div class="trial-strip">
+        <div class="trial-strip-item"><span class="icon">✓</span> 60 Days 100% Free</div>
+        <div class="trial-strip-item"><span class="icon">✓</span> No Commitments</div>
+        <div class="trial-strip-item"><span class="icon">✓</span> No Credit Card Required</div>
+      </div>
+
+      <div class="actions" style="margin-top:10px">
+        <a class="btn btn-primary" href="#demo">Start Free 60-Day Trial</a>
+        <a class="btn btn-secondary" href="#pricing">View Pricing (₹999/mo)</a>
+      </div>
+
+      <div class="hero-footnote">
+        <b>₹999/month</b> per clinic (save 10% on annual billing). Unlimited doctors and staff logins.<br>
+        <em>*AI Receptionist phone agent sold separately as an add-on (pricing to be announced soon).</em>
+      </div>
+    </div>
+
+    <!-- Call Card Interactive Graphic -->
+    <div class="callcard">
+      <div class="callcard-inner">
+        <div class="callcard-top">
+          <div class="callcard-badge">
+            <span class="call-status-indicator"></span>
+            <div>
+              <div class="who">Incoming Call · 8:42 PM</div>
+              <div class="meta">Clinic Closed · Handled by AI Receptionist</div>
+            </div>
+          </div>
+          <span class="addon-tag-pill">Add-On</span>
+        </div>
+        <div class="bubble caller">
+          "Namaste, my son has a 102° fever. Does Dr. Mehta have any appointment tomorrow morning?"
+        </div>
+        <div class="bubble ai">
+          "Namaste! Dr. Mehta has an opening tomorrow at 10:30 AM. Shall I confirm that appointment for your son?"
+        </div>
+        <div class="bubble caller">
+          "Yes, please book that slot."
+        </div>
+        <div class="bubble ai">
+          "Done! I have booked Tue 10:30 AM. Sending your appointment slip and directions right now on WhatsApp."
+        </div>
+        <div class="confirm-box">
+          <span>✅</span>
+          <div>
+            <strong>Appointment Booked & Confirmed</strong><br>
+            <small style="opacity:0.9">Token #04 · WhatsApp confirmation sent instantly</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats / Value Strip -->
+<section class="strip">
+  <div class="container strip-grid">
+    <div class="strip-item">
+      <b>₹999</b>
+      <span>Flat per clinic, per month. Unlimited doctors & staff logins.</span>
+    </div>
+    <div class="strip-item">
+      <b>60 Days Free</b>
+      <span>Zero risk trial. No payment details required to begin.</span>
+    </div>
+    <div class="strip-item">
+      <b>10% Off</b>
+      <span>Annual billing discount (₹899/month billed annually).</span>
+    </div>
+    <div class="strip-item">
+      <b>24/7 Phone</b>
+      <span>AI Receptionist add-on answers calls day & night (Pricing TBA*).</span>
+    </div>
+  </div>
+</section>
+
+<!-- Why Switch / Contrast Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="badge badge-emerald">Why Doctors Switch</span>
+      <h2>You are not short on effort. You are short on one place to run it all.</h2>
+      <p>Paper registers for patient records, WhatsApp personal chats for reminders, separate notebooks for token queues — doctors are exhausted managing scattered tools.</p>
+    </div>
+
+    <div class="compare-container">
+      <div class="compare-card">
+        <div>
+          <span class="badge" style="background:#FDE8E8;color:#9B1C1C;margin-bottom:8px">The Old Way</span>
+          <h3>Chaos Across Notebooks & Chats</h3>
+        </div>
+        <ul class="compare-list">
+          <li><span class="icon-cross">✕</span> Patient records lost between paper files, prescription slips, and memory</li>
+          <li><span class="icon-cross">✕</span> Consultation calls missed while examining patients or after clinic hours</li>
+          <li><span class="icon-cross">✕</span> Follow-up reminders sent manually from personal WhatsApp or completely missed</li>
+          <li><span class="icon-cross">✕</span> Prescriptions hand-written over and over again every visit</li>
+          <li><span class="icon-cross">✕</span> Confusing staff user fees that increase your bill every time you hire</li>
+        </ul>
+      </div>
+
+      <div class="compare-card positive">
+        <div>
+          <span class="badge badge-emerald" style="margin-bottom:8px">With The CliniQ AI</span>
+          <h3>Calm, Automated, All-in-One Clinic OS</h3>
+        </div>
+        <ul class="compare-list">
+          <li><span class="icon-check">✓</span> One unified, searchable timeline for every patient, visit, and lab report</li>
+          <li><span class="icon-check">✓</span> <strong>AI Receptionist (Add-on):</strong> Answers patient calls 24/7 and books appointments</li>
+          <li><span class="icon-check">✓</span> Automated branded WhatsApp reminders for visits, medicines, and labs</li>
+          <li><span class="icon-check">✓</span> Clean e-prescriptions built in seconds with Indian drug database shortcuts</li>
+          <li><span class="icon-check">✓</span> <strong>₹999/month flat:</strong> Unlimited doctors, receptionists, and nurses included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Features Section -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="badge badge-emerald">Everything in Your Core Plan</span>
+      <h2>Built for the exact clinical workflow of Indian outpatient practice.</h2>
+      <p>All of these core modules are included in your ₹999/month subscription from day one. Nothing essential is locked behind an expensive tier.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-box">
+        <div class="feature-icon">📅</div>
+        <h3>Appointments & Smart Queue</h3>
+        <p>Manage walk-ins, scheduled consultations, waitlists, and live token display on your clinic screen.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🗂️</div>
+        <h3>Unified Patient Records</h3>
+        <p>Complete visit history, chronic conditions, known allergies, vitals trends, and uploaded documents in one search.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">💊</div>
+        <h3>Fast E-Prescriptions</h3>
+        <p>India-specific generic & brand drug database, frequent dosage presets, drug interactions, and PDF WhatsApp dispatch.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🧪</div>
+        <h3>Lab Orders & Tracking</h3>
+        <p>Generate diagnostic requisitions, upload pathology reports, flag abnormal biomarkers, and share with patients.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">💬</div>
+        <h3>WhatsApp & SMS Automation</h3>
+        <p>Send appointment confirmations, queue alerts, digital prescriptions, and follow-up reminders right to WhatsApp.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🧾</div>
+        <h3>Billing & Collections</h3>
+        <p>Record consultation charges, procedural fees, medicine dispensing, UPI payments, and generate daily audit reports.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">📝</div>
+        <h3>AI Visit Summaries</h3>
+        <p>Quick doctor dictation or shorthand auto-formats into structured SOAP clinical notes — doctor always verifies before saving.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">🤝</div>
+        <h3>Referral Letters & Tracking</h3>
+        <p>Draft professional referral notes to specialists or imaging centers with patient-consented summaries attached.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="feature-icon">⚡</div>
+        <h3>Open API & Data Portability</h3>
+        <p>Your clinic data belongs to you. Export complete records anytime or integrate with local diagnostic hardware.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Receptionist Deep Dive (Clear Add-on Position) -->
+<section class="section" id="voice">
+  <div class="container">
+    <div class="voice-hero">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="badge badge-night">Powerful Phone AI</span>
+          <span class="addon-tag-pill">Add-On · Sold Separately</span>
+        </div>
+        <h2>Your front desk on the phone, even when no one is at the desk.</h2>
+        <p class="lead">Most clinics lose 20–30% of potential patients simply because calls go unanswered during consultations or after clinic closing hours. Our AI Receptionist answers with human-like warmth.</p>
+        
+        <div class="voice-checklist">
+          <div class="voice-check-item">
+            <span class="bullet">✦</span>
+            <span><strong>Understands natural spoken language:</strong> Handles regional English, Hindi, and Indian accents with zero frustration.</span>
+          </div>
+          <div class="voice-check-item">
+            <span class="bullet">✦</span>
+            <span><strong>Live real-time booking:</strong> Checks doctor availability, confirms patient slots, and enters tokens directly into your CliniQ calendar.</span>
+          </div>
+          <div class="voice-check-item">
+            <span class="bullet">✦</span>
+            <span><strong>Answers FAQs accurately:</strong> Shares consultation fees, clinic address, timings, and prep instructions.</span>
+          </div>
+          <div class="voice-check-item">
+            <span class="bullet">✦</span>
+            <span><strong>Smart escalation:</strong> Instantly routes emergency requests or complex queries to your staff phone.</span>
+          </div>
+        </div>
+
+        <div class="voice-addon-callout">
+          <strong>* AI Receptionist Add-on Pricing:</strong><br>
+          The AI Receptionist is an optional add-on and is not included in the base ₹999/month master plan. Pricing is currently being finalized and will be announced very soon. Sign up today to secure early-adopter waitlist priority!
+        </div>
+
+        <div style="margin-top:24px">
+          <a class="btn btn-white" href="#demo">Join AI Receptionist Waitlist</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="voice-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--night-border);padding-bottom:14px">
+            <div style="font-weight:600;font-size:15px;color:#D8ECE4">Today's Call Assistant Activity</div>
+            <span class="addon-tag-pill">Simulated Live</span>
+          </div>
+
+          <div class="voice-stat-grid">
+            <div class="voice-stat-card">
+              <div class="num">24</div>
+              <div class="desc">Calls Handled 24/7</div>
+            </div>
+            <div class="voice-stat-card">
+              <div class="num">18</div>
+              <div class="desc">Appointments Booked</div>
+            </div>
+            <div class="voice-stat-card">
+              <div class="num">9</div>
+              <div class="desc">After-Hours Inquiries</div>
+            </div>
+            <div class="voice-stat-card">
+              <div class="num">0</div>
+              <div class="desc">Missed Patient Calls</div>
+            </div>
+          </div>
+
+          <div class="voice-audio-preview">
+            <div class="voice-audio-top">
+              <span>Sample Call Playback (1 min 12 sec)</span>
+              <span style="color:#57E5BF">HD Voice</span>
+            </div>
+            <div style="font-size:13px;color:#BACEC7;font-style:italic">
+              "AI: Hello, The CliniQ Family Clinic. How can I assist you with Dr. Mehta today?..."
+            </div>
+            <div class="waveform">
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+              <div class="waveform-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Clinic Workflow -->
+<section class="section" id="workflow">
+  <div class="container">
+    <div class="section-head">
+      <span class="badge badge-emerald">Patient Journey</span>
+      <h2>Designed around the exact way a clinic runs.</h2>
+      <p>From initial booking to digital billing and automated follow-up.</p>
+    </div>
+
+    <div class="workflow-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Book</h3>
+        <p>Via staff counter, patient web link, or optional AI Receptionist phone agent.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Check-In</h3>
+        <p>Digital token assigned, vitals entered by nurse, live queue updated.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Consult</h3>
+        <p>Past visit timeline, allergy alerts, AI dictation notes, and e-prescription.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>Dispatch</h3>
+        <p>Branded PDF prescription and UPI payment bill sent straight to patient WhatsApp.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">05</div>
+        <h3>Follow-Up</h3>
+        <p>Automated reminders scheduled, medication refill prompts, and lab review alerts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="section section-alt pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-head" style="text-align:center;margin:0 auto 48px">
+      <span class="badge badge-emerald">Honest & Transparent Pricing</span>
+      <h2>One clinic. Full master features. No hidden user fees.</h2>
+      <p>Try it completely free for 60 days with your entire staff. Cancel anytime without paying a single rupee.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Master Plan Card -->
+      <div class="plan-card">
+        <span class="plan-top-badge">Most Popular for Independent Clinics</span>
+        <div class="plan-header">
+          <h3>The CliniQ Master Plan</h3>
+          <p>Complete clinical OS for independent doctors, polyclinics, and OPD clinics.</p>
+        </div>
+
+        <div class="price-row">
+          <span class="price-currency">₹</span>
+          <span class="price-amount">999</span>
+          <span class="price-period">/ month / clinic</span>
+        </div>
+
+        <div class="price-discount-pill">
+          <span>🎁</span> Annual Plan: <strong>₹899/month</strong> (Billed annually — Save 10%)
+        </div>
+
+        <div class="trial-guarantee-box">
+          <span style="font-size:22px">🛡️</span>
+          <div>
+            <strong>60-Day Risk-Free Trial:</strong> No credit card required, zero commitments. Cancel anytime with one click.
+          </div>
+        </div>
+
+        <ul class="plan-features-list">
+          <li><span class="ck">✓</span> <strong>Unlimited Staff Accounts:</strong> Add your partner doctors, receptionists, and nurses at no extra charge</li>
+          <li><span class="ck">✓</span> <strong>Smart Appointments & Token Queue:</strong> In-clinic screen display and walk-in tokens</li>
+          <li><span class="ck">✓</span> <strong>Unified Digital Patient Records:</strong> Lifelong visit history, vitals, and allergy warnings</li>
+          <li><span class="ck">✓</span> <strong>E-Prescriptions with Indian Drug Master:</strong> Fast brand search and branded PDF delivery</li>
+          <li><span class="ck">✓</span> <strong>Automated WhatsApp & SMS Communication:</strong> Slips, reminders, and lab alerts</li>
+          <li><span class="ck">✓</span> <strong>Billing, Invoicing & Daily Audit Reports:</strong> Consultation & procedure payment tracking</li>
+          <li><span class="ck">✓</span> <strong>AI Clinical Notes:</strong> Dictate shorthand, converted to structured medical summaries</li>
+          <li><span class="ck">✓</span> <strong>DPDP-Ready Data Security & Backup:</strong> Strict clinic-level encryption and full data export</li>
+        </ul>
+
+        <a class="btn btn-primary" href="#demo" style="width:100%;padding:15px;font-size:16px">
+          Start Your 60-Day Free Trial Now →
+        </a>
+      </div>
+
+      <!-- Add-On & Guarantees Column -->
+      <div class="addon-card-container">
+        <!-- AI Receptionist Add-On Box -->
+        <div class="addon-card featured">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div>
+              <span class="addon-tag-pill">Optional Add-On</span>
+              <h4 style="margin:8px 0 4px">📞 24/7 AI Receptionist</h4>
+            </div>
+            <span class="addon-price-tba">Price TBA Soon*</span>
+          </div>
+          <p>
+            An intelligent, bilingual phone assistant that answers calls to your clinic phone number 24/7. Books appointments, updates tokens, and answers patient questions when your desk is occupied or clinic is closed.
+          </p>
+          <div style="font-size:13px;color:var(--muted);background:var(--card);padding:10px 14px;border-radius:10px;border:1px solid var(--line)">
+            <strong>*Note:</strong> The AI Receptionist is sold separately as an add-on and is not part of the ₹999 master plan. Early access clinics get exclusive launch discounts.
+          </div>
+          <a class="btn btn-secondary" href="#demo" style="align-self:flex-start;font-size:13.5px;padding:9px 16px">
+            Join AI Add-On Waitlist
+          </a>
+        </div>
+
+        <!-- Trust Points -->
+        <div class="pricing-reassurance-list">
+          <div class="reassurance-item">
+            <strong>🎯 Zero Risk 60-Day Free Trial</strong>
+            <p>Test the full system in your active daily practice for 2 months before paying anything.</p>
+          </div>
+          <div class="reassurance-item">
+            <strong>🚫 No Per-Doctor "Seat Tax"</strong>
+            <p>Most clinical software charges per doctor login. We charge flat ₹999 per clinic regardless of size.</p>
+          </div>
+          <div class="reassurance-item">
+            <strong>📱 Mobile, Tablet, or PC</strong>
+            <p>No expensive hardware needed. Works smoothly on your existing Android phone, iPad, or laptop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security & Compliance -->
+<section class="section" id="security">
+  <div class="container">
+    <div class="section-head">
+      <span class="badge badge-emerald">Privacy & Compliance</span>
+      <h2>Clinical data deserves world-class security.</h2>
+      <p>Built from the ground up to respect Indian healthcare regulations and patient confidentiality.</p>
+    </div>
+
+    <div class="security-grid">
+      <div class="sec-card">
+        <div class="sec-icon">🔒</div>
+        <strong>Strict Tenant Isolation</strong>
+        <p>Database-level security barriers ensure your patient records are completely separated from any other clinic.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon">🛡️</div>
+        <strong>End-to-End Encryption</strong>
+        <p>All sensitive diagnostic history and personal data is encrypted at rest (AES-256) and in transit (TLS 1.3).</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon">📜</div>
+        <strong>DPDP Act Ready</strong>
+        <p>Patient consent logging and privacy controls compliant with India’s Digital Personal Data Protection Act.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon">🇮🇳</div>
+        <strong>ABDM/ABHA Compatible</strong>
+        <p>Data models structured to seamlessly integrate with Ayushman Bharat Digital Mission health milestones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <div class="section-head" style="text-align:center;margin:0 auto 40px">
+      <span class="badge badge-emerald">Frequently Asked Questions</span>
+      <h2>Clear answers to common questions doctors ask.</h2>
+    </div>
+
+    <div class="faq-wrap">
+      <details class="faq-item" open>
+        <summary>What is included in the ₹999/month master plan?</summary>
+        <div class="faq-content">
+          The ₹999/month plan covers your entire clinic: appointments, tokens, patient clinical records, drug database e-prescriptions, lab orders, billing, automated WhatsApp notifications, and AI visit notes. There is no restriction on patient numbers or records.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is the AI Receptionist included in the ₹999/month plan?</summary>
+        <div class="faq-content">
+          <strong>No, the AI Receptionist is sold separately as an optional add-on.</strong> While the core platform handles all in-clinic workflows, appointments, and WhatsApp messaging for ₹999, the phone AI receptionist agent requires dedicated telephony and voice AI compute. Its pricing will be announced very soon, and 60-day trial members will receive early-bird introductory rates.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does the 60-day free trial work?</summary>
+        <div class="faq-content">
+          You receive complete access to all features of the master platform for 60 full days. You do not need to provide a credit card or make any financial commitment. If you decide it isn't the right fit, you can cancel at any time with zero fee.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there a discount if we pay annually?</summary>
+        <div class="faq-content">
+          Yes! If you choose annual billing, you receive an immediate 10% discount, bringing the effective price down to ₹899/month per clinic.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I have to pay extra for staff or visiting consultants?</summary>
+        <div class="faq-content">
+          No! Unlike older software that charges ₹500–₹1,500 per doctor login, The CliniQ AI charges a flat fee per clinic. You can create accounts for your partner doctors, visiting specialists, front-desk staff, and nurses without paying extra.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does the AI prescribe medicines on its own?</summary>
+        <div class="faq-content">
+          <strong>Never.</strong> Medical decisions and prescriptions remain 100% under the licensed doctor’s control. The AI only assists with formatting doctor dictation and showing relevant dosage presets from your prior patterns. Nothing is ever saved or sent without the doctor explicitly clicking approve.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will it work on our existing clinic phones and tablets?</summary>
+        <div class="faq-content">
+          Yes. The CliniQ AI is built mobile-first. It runs smoothly inside any modern browser on Android phones, iPhones, iPads, MacBooks, or Windows desktop computers. No expensive server setup required.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA Banner -->
+<section class="section" id="demo">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2>Run your clinic. Not your software.</h2>
+        <p>Join forward-thinking doctors across India. Experience the relief of having all appointments, patient charts, and WhatsApp follow-ups in one clean system.</p>
+        <div style="display:flex;gap:14px;margin-top:16px;font-size:14px;opacity:0.9">
+          <span>✓ 60-Day Free Trial</span>
+          <span>✓ ₹999/mo after trial</span>
+          <span>✓ Cancel anytime</span>
+        </div>
+      </div>
+      <div class="actions" style="flex-direction:column;width:100%;max-width:280px">
+        <a class="btn btn-white" href="mailto:hello@thecliniqai.com?subject=The%20CliniQ%20AI%2060-Day%20Free%20Trial" style="width:100%">
+          Start 60-Day Free Trial
+        </a>
+        <a class="btn" href="mailto:hello@thecliniqai.com?subject=Inquiry%20from%20Clinic" style="background:transparent;border-color:rgba(255,255,255,0.4);color:#fff;width:100%">
+          Schedule 15-Min Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top">
+          <img src="assets/the-cliniq-ai-logo-white.png" alt="The CliniQ AI" class="footer-logo" height="42">
+        </a>
+        <p>The modern, intuitive clinic operating system built for independent doctors and outpatient clinics in India.</p>
+        <div style="font-size:13px;color:#708D84">
+          Support: <a href="mailto:hello@thecliniqai.com" style="color:#A8BCB5">hello@thecliniqai.com</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <div class="footer-links">
+          <a href="#features">Core Features</a>
+          <a href="#voice">AI Receptionist (Add-on)</a>
+          <a href="#workflow">Clinic Workflow</a>
+          <a href="#pricing">Pricing (₹999/mo)</a>
+          <a href="#demo">60-Day Free Trial</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Compliance & Trust</h4>
+        <div class="footer-links">
+          <a href="#security">DPDP Compliance</a>
+          <a href="#security">ABDM/ABHA Architecture</a>
+          <a href="javascript:openLegal('privacy')">Privacy Policy</a>
+          <a href="javascript:openLegal('terms')">Terms of Service</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Clinic Support</h4>
+        <div class="footer-links">
+          <a href="#faq">Doctor FAQs</a>
+          <a href="mailto:hello@thecliniqai.com?subject=Support%20Request">Contact Support</a>
+          <a href="#demo">Request Onboarding Help</a>
+          <span style="font-size:12.5px;color:#678278;margin-top:6px">Annual Plan: 10% Discount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div>© 2026 The CliniQ AI. All rights reserved. Designed for Indian Clinical Practice.</div>
+      <div>Medical Disclaimer: The CliniQ AI provides administrative practice management tools and does not provide autonomous clinical advice.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Legal Modal -->
+<div class="modal" id="legalModal" onclick="handleModalBackdrop(event)">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="legalTitle">Privacy Policy</h2>
+      <button class="close-btn" onclick="closeLegal()">✕</button>
+    </div>
+    <div class="modal-body" id="legalBody"></div>
+  </div>
+</div>
+
+<script>
+// Mobile Navigation Drawer Toggle
+const mobileToggle = document.getElementById("mobileToggle");
+const mobileDrawer = document.getElementById("mobileDrawer");
+
+mobileToggle.addEventListener("click", () => {
+  mobileDrawer.classList.toggle("open");
+  mobileToggle.textContent = mobileDrawer.classList.contains("open") ? "✕" : "☰";
+});
+
+function closeDrawer() {
+  mobileDrawer.classList.remove("open");
+  mobileToggle.textContent = "☰";
+}
+
+// Sticky Header Box Shadow
+window.addEventListener("scroll", () => {
+  const nav = document.getElementById("navbar");
+  if (window.scrollY > 20) {
+    nav.style.boxShadow = "0 4px 20px rgba(16,32,46,0.08)";
+  } else {
+    nav.style.boxShadow = "none";
+  }
+});
+
+// Legal Modal Data & Actions
+const legalContent = {
+  privacy: {
+    title: "Privacy & Data Protection Policy",
+    body: `
+      <p><strong>Effective Date:</strong> 5 October 2026</p>
+      <p>The CliniQ AI takes healthcare data privacy with absolute seriousness. This policy outlines how we handle clinic, staff, and patient information.</p>
+      <h3>1. Clinic & Patient Data Ownership</h3>
+      <p>All clinical data entered into The CliniQ AI belongs strictly and exclusively to the clinic. We do not sell, rent, or monetize patient health information to third-party advertisers, pharmaceutical companies, or insurance providers.</p>
+      <h3>2. DPDP Act Compliance & Security</h3>
+      <p>All personal and medical data is stored with strict tenant isolation, encrypted at rest using AES-256, and transmitted via TLS 1.3 encryption. Backups and access logs are recorded for accountability.</p>
+      <h3>3. AI Processing & Receptionist</h3>
+      <p>AI receptionist call logs and dictation summaries are processed exclusively for appointment and clinical formatting purposes within your account. They are never shared publicly.</p>
+      <h3>Contact</h3>
+      <p>For data inquiries: <a href="mailto:privacy@thecliniqai.com">privacy@thecliniqai.com</a></p>
+    `
+  },
+  terms: {
+    title: "Terms of Service",
+    body: `
+      <p><strong>Effective Date:</strong> 5 October 2026</p>
+      <h3>1. Scope of Service</h3>
+      <p>The CliniQ AI provides practice management, scheduling, prescription formatting, billing, and communication tools. It does not practice medicine and is not a substitute for clinical judgment.</p>
+      <h3>2. Subscription & 60-Day Free Trial</h3>
+      <p>The master clinic plan is priced at ₹999/month per clinic, with a 10% discount on annual subscriptions (effective ₹899/month). New clinics receive a 60-day free trial with no commitment and no credit card required. Clinics may cancel at any time.</p>
+      <h3>3. AI Receptionist Add-On</h3>
+      <p>The AI Receptionist is sold separately as an optional add-on with separate pricing terms (to be announced). It acts as an automated front-desk assistant under clinic supervision.</p>
+      <h3>4. Doctor Responsibility</h3>
+      <p>Licensed medical professionals remain solely responsible for validating patient information, diagnoses, dosage calculations, and approved prescriptions.</p>
+    `
+  }
+};
+
+function openLegal(type) {
+  const item = legalContent[type];
+  if (!item) return;
+  document.getElementById("legalTitle").textContent = item.title;
+  document.getElementById("legalBody").innerHTML = item.body;
+  document.getElementById("legalModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLegal() {
+  document.getElementById("legalModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function handleModalBackdrop(e) {
+  if (e.target.id === "legalModal") {
+    closeLegal();
+  }
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLegal();
+});
+</script>
+</body>
+</html>
