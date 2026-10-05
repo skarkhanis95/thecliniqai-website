@@ -1,0 +1,66 @@
+# The CliniQ AI
+
+> The complete clinical operating system engineered specifically for independent doctors and outpatient clinics in India.
+
+## About
+The CliniQ AI is an intuitive, web-based practice management platform and clinical operating system designed specifically for solo medical practitioners, family physicians, polyclinics, and independent outpatient clinics across India. It unifies appointment scheduling, live token queues, patient clinical histories, Indian drug e-prescriptions, lab investigations, WhatsApp patient communications, and daily clinic billing into a single streamlined interface.
+
+## Who It's For
+The platform is purpose-built for outpatient healthcare teams:
+- **Solo doctors:** Independent practitioners who need fast charting, digital prescriptions, and automated follow-ups without administrative friction.
+- **Independent clinics:** Private consulting rooms, pediatricians, gynecologists, general physicians, and specialty outpatient practices.
+- **Small clinics in India:** Healthcare practices seeking an affordable, Indian-context clinical workflow without per-doctor seat licensing fees.
+- **Receptionists/front-desk staff:** Front-office personnel managing walk-in queues, phone bookings, patient check-ins, and billing collections.
+- **Nurses/assistants:** Clinical assistants recording patient vitals, uploading diagnostic lab reports, and tracking patient flow.
+
+## What It Does
+The CliniQ AI brings core outpatient clinic operations into one unified workflow:
+- **Appointment scheduling:** Book, reschedule, and manage scheduled clinic consultations and follow-ups.
+- **Walk-in queue management:** Live token generation, waitlist handling, and digital waiting-room token displays.
+- **Patient records:** Searchable medical timeline encompassing consultation history, chronic diagnoses, allergy alerts, and uploaded records.
+- **E-prescriptions:** Rapid prescription writing with Indian brand and generic drug shortcuts, dosage presets, interaction warnings, and branded PDF generation delivered directly to patients.
+- **Diagnosis and visit management:** Structured visit charting, vitals recording, and clinical notes.
+- **Lab records:** Diagnostic test slip generation, pathology report uploads, abnormal biomarker flags, and direct patient sharing.
+- **Reminders and notifications:** Automated WhatsApp and SMS messages for appointment slips, live token status updates, e-prescriptions, and follow-up recalls.
+- **Referrals:** Draft professional referral letters to specialists and diagnostic imaging centers with relevant clinical summaries.
+- **Billing/invoicing:** Record consultation fees, procedural charges, UPI payments, and generate daily collection reconciliation reports.
+- **AI-assisted workflows:** AI-assisted clinical summary generation (converting doctor shorthand into structured notes) and an optional 24/7 AI voice phone receptionist add-on.
+- **API access & data portability:** Open data access allowing clinics to export complete medical and operational data in standard formats anytime.
+
+## AI
+Artificial intelligence in The CliniQ AI functions strictly as an administrative and clerical assistant rather than a source of clinical truth. Medical decisions, diagnoses, and prescription orders remain 100% under the licensed doctor's authority. AI clinical summaries only structure doctor-dictated shorthand into readable notes, and all AI-generated content must be explicitly reviewed and approved by the clinician before becoming part of the permanent medical record. The CliniQ AI does not provide autonomous clinical advice, medical diagnosis, or unapproved prescriptions.
+
+## Pricing
+The current pricing published on the website is:
+- **₹1,000/month per clinic** (published as **₹999/month flat per clinic**).
+- **Single master plan** with zero feature gating and unlimited doctor and staff logins.
+- **Annual billing option:** 10% discount, effective **₹899/month** per clinic (billed as ₹10,788 annually).
+- **60-day free trial:** Full platform access with zero financial commitment and no credit card required.
+- **AI Receptionist Add-On:** An optional 24/7 phone assistant add-on sold separately from the base clinic plan, with telephony pricing to be announced soon.
+
+## Security & Privacy
+The CliniQ AI enforces strict security and privacy standards:
+- **Encryption:** All data in transit is encrypted using TLS 1.3. All persistent databases, electronic prescription archives, and backups are encrypted at rest using AES-256.
+- **Role-based access control (RBAC):** Granular access permissions for clinic owners, associate doctors, receptionists, and nursing staff.
+- **Audit logging:** Comprehensive access logs, security tracking, and communication delivery timestamps.
+- **Tenant data isolation:** Strict multi-tenant logical database isolation ensuring no clinic can access another clinic's data.
+- **Consent handling:** Explicit patient consent principles; patients can opt out of automated WhatsApp messages anytime by replying STOP or UNSUBSCRIBE or via the online data deletion portal.
+- **DPDP readiness:** Architected to align with India's Digital Personal Data Protection (DPDP) Act, 2023 and Information Technology Rules, 2011. Medical records are preserved in accordance with National Medical Commission (NMC) statutory retention requirements (minimum 3 years).
+
+## Healthcare Standards
+The CliniQ AI is designed following ABDM-ready (Ayushman Bharat Digital Mission) and FHIR-aligned data architecture principles to ensure future-ready interoperability within India's digital health ecosystem. The platform does not claim live or certified government ABDM/ABHA integration at this time.
+
+## Public Pages
+- **Home:** https://thecliniqai.com/
+- **About Us:** https://thecliniqai.com/about.html
+- **Contact Us:** https://thecliniqai.com/contact.html
+- **Privacy Policy:** https://thecliniqai.com/privacy.html
+- **Terms & Conditions:** https://thecliniqai.com/terms.html
+- **Data Deletion Instructions:** https://thecliniqai.com/data-deletion.html
+- **Full AI Context Document:** https://thecliniqai.com/llms-full.txt
+
+## Contact
+- **General Inquiries & Demos:** hello@thecliniqai.com
+- **Clinic Setup & Support:** support@thecliniqai.com
+- **Privacy & Grievance Officer:** privacy@thecliniqai.com
+- **Registered Office:** The CliniQ AI Technologies, B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra, India.

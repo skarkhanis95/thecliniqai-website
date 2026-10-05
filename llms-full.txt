@@ -1,0 +1,205 @@
+# The CliniQ AI — Complete Public System Documentation
+
+> Detailed Markdown reference for AI agents, search engines, and language models.
+
+---
+
+## 1. Company & Product Overview
+
+The CliniQ AI Technologies is an Indian healthcare technology company based in Wakad, Pune, Maharashtra. The company develops **The CliniQ AI**, a modern, cloud-secured clinical operating system and practice management web application engineered specifically for independent outpatient clinics, family physicians, polyclinics, and solo medical practitioners throughout India.
+
+The platform provides a unified digital operating environment for outpatient care, consolidating appointment scheduling, walk-in queue management, electronic medical records, Indian drug e-prescriptions, diagnostic orders, automated WhatsApp communications, daily billing, and administrative AI workflows into a single interface.
+
+The application is engineered mobile-first and functions across modern web browsers on smartphones, tablets, iPads, laptops, and desktop computers without specialized hardware installation.
+
+---
+
+## 2. Target Users
+
+The CliniQ AI is designed for outpatient clinical teams in India:
+- **Solo Doctors:** General practitioners and specialists who want rapid consultation charting, branded e-prescriptions, and automated follow-ups without administrative overload.
+- **Independent Clinics & Polyclinics:** Small-to-midsize outpatient centers where multiple doctors, visiting consultants, and staff share front-desk and clinical facilities.
+- **Outpatient Specialties:** General medicine, pediatrics, obstetrics & gynecology, cardiology, dermatology, and general outpatient departments (OPDs).
+- **Receptionists and Front-Desk Staff:** Administrative personnel managing phone inquiries, in-person walk-ins, token queues, doctor availability, and billing collections.
+- **Nurses and Clinic Assistants:** Support staff responsible for capturing patient vital signs, recording allergies, managing patient queues, and uploading diagnostic reports.
+
+---
+
+## 3. Product Positioning & Value Proposition
+
+In India, over 70% of outpatient consultations occur in neighborhood private clinics. Many such clinics still rely on paper registers, handwritten prescription slips, physical token notebooks, and informal WhatsApp chats on personal mobile phones. Existing hospital information management systems (HIMS) are typically bloated, complex, and cost-prohibitive due to per-doctor seat licensing taxes.
+
+The CliniQ AI positions itself as:
+- **Calm and Intuitive:** Replaces fragmented registers and chats with a single chronological patient timeline.
+- **Zero Per-Doctor Penalty:** Charges a flat monthly fee per clinic rather than charging ₹500–₹1,500 per additional doctor seat.
+- **Built for Indian Clinical Realities:** Includes an Indian drug master catalog, WhatsApp-native patient delivery, token queue management for walk-ins, and UPI payment support.
+- **Device Agnostic:** Runs smoothly in standard web browsers across mobile phones, tablets, and desktop computers.
+
+---
+
+## 4. Core Features & Functional Modules
+
+### 4.1 Appointment Scheduling & Live Queue Management
+- **Scheduled Appointments:** Book, reschedule, and cancel scheduled consultations.
+- **Walk-in Token Management:** Issue digital queue tokens for walk-in patients alongside scheduled appointments.
+- **Live Waiting-Room Token Display:** Live queue tracker for in-clinic display screens or waiting-room tablets showing current, completed, and upcoming tokens.
+- **Waitlists & Buffer Management:** Manage patient flow and appointment delays dynamically.
+
+### 4.2 Searchable Patient Medical Records
+- **Unified Chronological Timeline:** Instantly review past clinical encounters, diagnostic tests, vitals trends, and medication history.
+- **Clinical Alerts:** Persistent flags for drug allergies, chronic conditions (e.g., diabetes, hypertension), and medical precautions.
+- **Document Storage:** Securely store previous consultation slips, lab results, and external medical records.
+
+### 4.3 Fast Indian Drug E-Prescriptions
+- **Indian Drug Master Catalog:** Quick search by generic active molecule or popular Indian brand names.
+- **Dosage & Frequency Presets:** Pre-configured and customizable dosage instructions (e.g., OD, BD, TDS, SOS, before/after food).
+- **Drug Interaction & Allergy Alerts:** Clinical cues when prescribing medications against documented allergies.
+- **Branded Prescription Generation:** Generates official, clinic-branded PDF prescriptions containing doctor registration numbers and digital signatures.
+- **Direct WhatsApp Delivery:** Dispatches the generated prescription PDF directly to the patient's WhatsApp immediately after consultation.
+
+### 4.4 Diagnosis & Visit Management (Consultation Workflow)
+- **Consultation Charting:** Structured recording of chief complaints, symptoms, physical examination findings, and clinical diagnoses.
+- **Vitals Tracking:** Capture and chart blood pressure, pulse, temperature, SpO2, weight, BMI, and pediatric growth vitals.
+- **AI Clinical Summaries:** Doctor can dictate or enter shorthand notes, which the system formats into clear medical notes. Every entry requires doctor review and explicit approval before saving.
+
+### 4.5 Diagnostic Lab Orders & Results
+- **Test Requisitions:** Create diagnostic test slips for pathology and radiology.
+- **Report Archiving:** Upload diagnostic reports and lab PDFs directly into the patient's record.
+- **Abnormal Biomarker Flags:** Highlight abnormal findings for quick reference during follow-ups.
+- **Patient Sharing:** Securely share lab order slips and result summaries with patients via WhatsApp.
+
+### 4.6 Automated WhatsApp & SMS Workflows
+- **Powered by Meta WhatsApp Business API:** Official, compliant message delivery on behalf of the clinic.
+- **Automated Communication Types:**
+  - Instant appointment confirmation slips with clinic location and timing.
+  - Live token queue notifications and arrival reminders.
+  - Digital e-prescription PDF delivery.
+  - Follow-up recalls and preventive check-up reminders.
+- **Patient Consent & Opt-Out:** Patients can easily opt out at any time by replying "STOP" or "UNSUBSCRIBE".
+
+### 4.7 Referral Management
+- **Specialist Referrals:** Draft professional referral letters for tertiary specialists, cardiologists, orthopedic surgeons, or diagnostic imaging centers.
+- **Clinical Summaries:** Include relevant past encounter summaries, allergies, and diagnostic findings in the referral slip.
+
+### 4.8 Clinic Billing & Daily Collections
+- **Billing Management:** Record consultation fees, procedure charges, and diagnostic fees.
+- **Payment Modes:** Log UPI payments, cash collections, card payments, and track pending receivables.
+- **Daily Reconciliation:** Export daily clinic collection reports, breakdown by doctor or payment method, and review outstanding dues.
+
+### 4.9 Open Data Architecture & Data Export
+- **Clinic Data Ownership:** Clinics retain 100% legal ownership of their clinical and administrative data.
+- **Standardized Export:** Export all patient demographics, appointment logs, and clinical records in standard digital formats anytime.
+
+---
+
+## 5. AI Capabilities & Clinical Safeguards
+
+The CliniQ AI incorporates artificial intelligence strictly as an assistive productivity tool:
+
+### 5.1 AI Clinical Note Assistant
+- **Purpose:** Converts doctor shorthand, dictation, or raw bullet points into structured clinical notes.
+- **Safety Standard:** AI is **never** a source of clinical truth and does not make diagnostic or therapeutic decisions.
+- **Clinician Review Requirement:** AI drafts remain completely editable and require the licensed practitioner to review, verify, and click "Approve" before becoming part of the permanent medical record.
+
+### 5.2 24/7 AI Voice Receptionist (Optional Telephony Add-On)
+- **Overview:** An intelligent telephony agent that connects to the clinic's phone number to handle inbound calls 24 hours a day, 7 days a week.
+- **Speech Capabilities:** Understands natural speech, handles regional Indian accents, Hindi, and Indian English.
+- **Functions:**
+  - Checks live doctor availability schedules.
+  - Books and confirms appointment slots in real time.
+  - Answers common clinic FAQs (consultation fees, clinic address, timings, directions, preparation instructions).
+  - Automatically dispatches WhatsApp confirmation slips immediately after the call concludes.
+- **Add-On Status:** The AI Voice Receptionist requires dedicated voice AI telephony compute and is sold separately from the base ₹999/month master plan. Pricing is to be announced soon, with priority waitlist access.
+
+---
+
+## 6. Pricing & Subscription Terms
+
+The CliniQ AI maintains a transparent, single-tier pricing model:
+- **Base Plan Price:** **₹999 per month per clinic** (plus applicable GST).
+- **Effective Flat Rate:** Approx. **₹1,000/month per clinic**.
+- **No Feature Gating:** Every core feature (appointments, queue tokens, patient records, Indian e-prescriptions, lab tracking, WhatsApp notifications, billing, AI notes) is included.
+- **Unlimited Staff Logins:** No per-doctor or per-seat user fees. Add associate doctors, visiting consultants, receptionists, and nurses at no additional cost.
+- **Annual Billing Discount:** 10% discount on annual payment, bringing the effective price down to **₹899 per month per clinic** (billed as ₹10,788 annually).
+- **60-Day Free Trial:** Full platform access for 60 calendar days with zero upfront payment, no credit card required, and one-click cancellation.
+- **Optional Add-On:** 24/7 AI Voice Receptionist telephony agent is priced separately (launch pricing TBA).
+
+---
+
+## 7. Security Architecture & Data Handling
+
+The platform implements enterprise-grade technical and organizational safeguards:
+- **Encryption in Transit:** Enforced TLS 1.3 encryption with high-grade cryptographic cipher suites across all endpoints.
+- **Encryption at Rest:** AES-256 encryption applied to all persistent databases, e-prescription files, document storage, and backups.
+- **Multi-Tenant Logical Isolation:** Strict database-level isolation between clinic tenants preventing cross-clinic data leakage.
+- **Role-Based Access Control (RBAC):** Configurable privilege levels for clinic administrators, partner doctors, receptionists, and nursing staff.
+- **Audit Logging:** Tamper-evident logs of data access, login sessions, prescription creation, and communication dispatch.
+- **Regulatory Frameworks:** Built in alignment with the Indian **Digital Personal Data Protection (DPDP) Act, 2023** and **Information Technology Rules, 2011**.
+- **Medical Records Retention:** In compliance with **National Medical Commission (NMC)** regulations, clinical patient charts are subject to a statutory minimum retention period of 3 years.
+- **Data Deletion & Privacy Rights:** Patients and clinics can exercise data access, opt-out, and deletion rights via email to `privacy@thecliniqai.com` or via the dedicated online data deletion portal.
+
+---
+
+## 8. Healthcare Standards & Interoperability
+
+- **ABDM Readiness:** The system is engineered according to Ayushman Bharat Digital Mission (ABDM) guidelines and architectural standards.
+- **FHIR Alignment:** Follows Fast Healthcare Interoperability Resources (FHIR) data schema principles to facilitate future-ready health data exchange in India.
+- **Integration Scope:** The platform is architected to be ABDM-ready, but does **not** claim live or certified government ABDM/ABHA production integration at this stage.
+
+---
+
+## 9. Product Limitations & Out-of-Scope Areas
+
+To maintain clear expectations, the following areas are outside the scope of The CliniQ AI:
+- **Not a Healthcare Provider:** The CliniQ AI provides practice management software tools and does not provide clinical care, medical diagnosis, or treatment.
+- **No Autonomous Prescribing:** The software never prescribes medications or determines treatment independently. All prescribing requires licensed doctor authorization.
+- **Not for Inpatient/Hospital ICU Operations:** The platform is tailored specifically for outpatient clinics and ambulatory consulting rooms, not for complex hospital inpatient admissions, OT scheduling, or bed-management workflows.
+- **AI Voice Receptionist Sold Separately:** Inbound phone voice handling is an optional add-on that requires telephony infrastructure and is not bundled inside the base ₹999/month subscription.
+- **No Third-Party Data Monetization:** Patient and clinic data is never sold, licensed, or shared with pharmaceutical companies, advertisers, or third-party data brokers.
+
+---
+
+## 10. Frequently Asked Questions (Published on Website)
+
+**Q: What is included in the ₹999/month master plan?**  
+A: The ₹999/month plan covers the entire clinic: appointments, tokens, patient clinical records, Indian drug database e-prescriptions, lab orders, billing, automated WhatsApp notifications, and AI visit notes. There is no restriction on patient numbers or records.
+
+**Q: Is the AI Receptionist included in the ₹999/month plan?**  
+A: No, the AI Receptionist is sold separately as an optional add-on. While the core platform handles all in-clinic workflows, appointments, and WhatsApp messaging for ₹999, the phone AI receptionist agent requires dedicated telephony and voice AI compute. Its pricing will be announced very soon, and 60-day trial members will receive early-bird introductory rates.
+
+**Q: How does the 60-day free trial work?**  
+A: You receive complete access to all features of the master platform for 60 full days without providing a credit card or making any financial commitment. If you decide it isn't the right fit, you can cancel at any time with zero fee.
+
+**Q: Is there a discount if we pay annually?**  
+A: Yes! Choosing annual billing provides an immediate 10% discount, bringing the effective price down to ₹899/month per clinic.
+
+**Q: Do I have to pay extra for staff or visiting consultants?**  
+A: No! Unlike older software that charges per doctor login, The CliniQ AI charges a flat fee per clinic. You can create accounts for your partner doctors, visiting specialists, front-desk staff, and nurses without paying extra.
+
+**Q: Does the AI prescribe medicines on its own?**  
+A: Never. Medical decisions and prescriptions remain 100% under the licensed doctor’s control. The AI only assists with formatting doctor dictation and showing relevant dosage presets from prior patterns. Nothing is ever saved or sent without the doctor explicitly clicking approve.
+
+---
+
+## 11. Official Public Links & Canonical URLs
+
+- **Website Homepage:** https://thecliniqai.com/
+- **About Us:** https://thecliniqai.com/about.html
+- **Contact Us:** https://thecliniqai.com/contact.html
+- **Privacy Policy:** https://thecliniqai.com/privacy.html
+- **Terms & Conditions:** https://thecliniqai.com/terms.html
+- **User Data Deletion Instructions:** https://thecliniqai.com/data-deletion.html
+- **Concise AI Summary (llms.txt):** https://thecliniqai.com/llms.txt
+- **Detailed AI Summary (llms-full.txt):** https://thecliniqai.com/llms-full.txt
+- **XML Sitemap:** https://thecliniqai.com/sitemap.xml
+- **Robots Directives:** https://thecliniqai.com/robots.txt
+
+---
+
+## 12. Contact & Corporate Identity
+
+- **Legal Entity:** The CliniQ AI Technologies
+- **Registered Office:** B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra, India
+- **General Inquiries & Demos:** hello@thecliniqai.com
+- **Customer Support & Setup:** support@thecliniqai.com
+- **Privacy & Grievance Desk:** privacy@thecliniqai.com
