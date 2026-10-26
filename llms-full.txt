@@ -6,7 +6,7 @@
 
 ## 1. Company & Product Overview
 
-The CliniQ AI Technologies is an Indian healthcare technology company based in Wakad, Pune, Maharashtra. The company develops **The CliniQ AI**, a modern, cloud-secured clinical operating system and practice management web application engineered specifically for independent outpatient clinics, family physicians, polyclinics, and solo medical practitioners throughout India.
+Samar AI Solutions Private Limited is an Indian healthcare technology company based in Wakad, Pune, Maharashtra. The company develops and operates **The CliniQ AI**, a modern, cloud-secured clinical operating system and practice management web application engineered specifically for independent outpatient clinics, family physicians, polyclinics, and solo medical practitioners throughout India.
 
 The platform provides a unified digital operating environment for outpatient care, consolidating appointment scheduling, walk-in queue management, electronic medical records, Indian drug e-prescriptions, diagnostic orders, automated WhatsApp communications, daily billing, and administrative AI workflows into a single interface.
 
@@ -136,7 +136,7 @@ The platform implements enterprise-grade technical and organizational safeguards
 - **Audit Logging:** Tamper-evident logs of data access, login sessions, prescription creation, and communication dispatch.
 - **Regulatory Frameworks:** Built in alignment with the Indian **Digital Personal Data Protection (DPDP) Act, 2023** and **Information Technology Rules, 2011**.
 - **Medical Records Retention:** In compliance with **National Medical Commission (NMC)** regulations, clinical patient charts are subject to a statutory minimum retention period of 3 years.
-- **Data Deletion & Privacy Rights:** Patients and clinics can exercise data access, opt-out, and deletion rights via email to `privacy@thecliniqai.com` or via the dedicated online data deletion portal.
+- **Data Deletion & Privacy Rights:** Patients and clinics can exercise data access, opt-out, and deletion rights via email to `admin@thecliniqai.com` or via the dedicated online data deletion portal.
 
 ---
 
@@ -198,8 +198,10 @@ A: Never. Medical decisions and prescriptions remain 100% under the licensed doc
 
 ## 12. Contact & Corporate Identity
 
-- **Legal Entity:** The CliniQ AI Technologies
-- **Registered Office:** B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra, India
-- **General Inquiries & Demos:** hello@thecliniqai.com
-- **Customer Support & Setup:** support@thecliniqai.com
-- **Privacy & Grievance Desk:** privacy@thecliniqai.com
+- **Legal Entity:** Samar AI Solutions Private Limited
+- **Brand / Product:** The CliniQ AI
+- **Official Website:** https://thecliniqai.com
+- **GSTIN:** 27ABVCS4576L1Z9
+- **Registered Office:** A3-703, S NO.190/191, Sucasa Complex, Behind Datta Mandir, Wakad, Pune - 411057, Maharashtra, India
+- **Support & Inquiries:** admin@thecliniqai.com
+- **Company Phone:** +917020895477

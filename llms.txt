@@ -59,8 +59,10 @@ The CliniQ AI is designed following ABDM-ready (Ayushman Bharat Digital Mission)
 - **Data Deletion Instructions:** https://thecliniqai.com/data-deletion.html
 - **Full AI Context Document:** https://thecliniqai.com/llms-full.txt
 
-## Contact
-- **General Inquiries & Demos:** hello@thecliniqai.com
-- **Clinic Setup & Support:** support@thecliniqai.com
-- **Privacy & Grievance Officer:** privacy@thecliniqai.com
-- **Registered Office:** The CliniQ AI Technologies, B-604, Platina Society, Kala Khadak, Wakad, Pune - 411057, Maharashtra, India.
+## Contact & Legal Identity
+- **Legal Entity:** Samar AI Solutions Private Limited (Brand: The CliniQ AI)
+- **Website:** https://thecliniqai.com
+- **Registered Office:** A3-703, S NO.190/191, Sucasa Complex, Behind Datta Mandir, Wakad, Pune - 411057, Maharashtra, India.
+- **GSTIN:** 27ABVCS4576L1Z9
+- **Support & Inquiries:** admin@thecliniqai.com
+- **Company Phone:** +917020895477
